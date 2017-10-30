@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B7F87F7DAD72981DE8D2480 /* Pods_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1297488D899E9D5302EFCEB8 /* Pods_weibo.framework */; };
+		F7001C661FA1868D007B6FDE /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001C651FA1868D007B6FDE /* WBVisitorView.swift */; };
+		F7001C941FA1939D007B6FDE /* UILabel+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = F7001C921FA1939D007B6FDE /* UILabel+CZAddition.m */; };
+		F7001C991FA1AC45007B6FDE /* UIButton+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = F7001C951FA1AC45007B6FDE /* UIButton+CZAddition.m */; };
+		F7001C9A1FA1AC45007B6FDE /* UIColor+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = F7001C961FA1AC45007B6FDE /* UIColor+CZAddition.m */; };
+		F7001C9D1FA2D446007B6FDE /* WBNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001C9C1FA2D446007B6FDE /* WBNetworkManager.swift */; };
+		F7001C9F1FA30800007B6FDE /* WBNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001C9E1FA30800007B6FDE /* WBNetworkManager+Extension.swift */; };
+		F7001CA11FA31F0B007B6FDE /* WBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001CA01FA31F0B007B6FDE /* WBStatus.swift */; };
+		F7001CA31FA322C4007B6FDE /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001CA21FA322C4007B6FDE /* WBStatusListViewModel.swift */; };
+		F701C80F1F98385000473AC0 /* WBtest.m in Sources */ = {isa = PBXBuildFile; fileRef = F701C80E1F98385000473AC0 /* WBtest.m */; };
+		F78898C41F973290006CB400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78898C31F973290006CB400 /* AppDelegate.swift */; };
+		F78898CB1F973290006CB400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78898CA1F973290006CB400 /* Assets.xcassets */; };
+		F78898D61F9733CB006CB400 /* WBMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78898D51F9733CB006CB400 /* WBMainViewController.swift */; };
+		F78898E51F973612006CB400 /* WBNavgationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78898E41F973612006CB400 /* WBNavgationController.swift */; };
+		F78899031F973854006CB400 /* WBBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78899021F973854006CB400 /* WBBaseViewController.swift */; };
+		F78899071F973E28006CB400 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78899061F973E28006CB400 /* Default-568h@2x.png */; };
+		F78899091F9745A7006CB400 /* WBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78899081F9745A7006CB400 /* WBHomeViewController.swift */; };
+		F788990B1F9745B1006CB400 /* WBMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F788990A1F9745B1006CB400 /* WBMessageViewController.swift */; };
+		F788990D1F9745BF006CB400 /* WBDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F788990C1F9745BF006CB400 /* WBDiscoverViewController.swift */; };
+		F788990F1F9745CA006CB400 /* WBProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F788990E1F9745CA006CB400 /* WBProfileViewController.swift */; };
+		F78899111F9745D6006CB400 /* WBComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78899101F9745D6006CB400 /* WBComposeViewController.swift */; };
+		F793067C1F9849F3007007C5 /* WBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F793067B1F9849F3007007C5 /* WBDemoViewController.swift */; };
+		F793067E1F99868D007007C5 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F793067D1F99868C007007C5 /* UIBarButtonItem+Extension.swift */; };
+		F79306801F998DFF007007C5 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F793067F1F998DFF007007C5 /* UIScreen+Extension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1297488D899E9D5302EFCEB8 /* Pods_weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9343EC685D9002895E274605 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
+		F7001C651FA1868D007B6FDE /* WBVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
+		F7001C911FA1938B007B6FDE /* weibo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "weibo-Bridging-Header.h"; sourceTree = "<group>"; };
+		F7001C921FA1939D007B6FDE /* UILabel+CZAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CZAddition.m"; sourceTree = "<group>"; };
+		F7001C931FA1939D007B6FDE /* UILabel+CZAddition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+CZAddition.h"; sourceTree = "<group>"; };
+		F7001C951FA1AC45007B6FDE /* UIButton+CZAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CZAddition.m"; sourceTree = "<group>"; };
+		F7001C961FA1AC45007B6FDE /* UIColor+CZAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CZAddition.m"; sourceTree = "<group>"; };
+		F7001C971FA1AC45007B6FDE /* UIButton+CZAddition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+CZAddition.h"; sourceTree = "<group>"; };
+		F7001C981FA1AC45007B6FDE /* UIColor+CZAddition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+CZAddition.h"; sourceTree = "<group>"; };
+		F7001C9C1FA2D446007B6FDE /* WBNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNetworkManager.swift; sourceTree = "<group>"; };
+		F7001C9E1FA30800007B6FDE /* WBNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetworkManager+Extension.swift"; sourceTree = "<group>"; };
+		F7001CA01FA31F0B007B6FDE /* WBStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatus.swift; sourceTree = "<group>"; };
+		F7001CA21FA322C4007B6FDE /* WBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusListViewModel.swift; sourceTree = "<group>"; };
+		F701C80D1F98385000473AC0 /* WBtest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBtest.h; sourceTree = "<group>"; };
+		F701C80E1F98385000473AC0 /* WBtest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBtest.m; sourceTree = "<group>"; };
+		F78898C01F973290006CB400 /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F78898C31F973290006CB400 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F78898CA1F973290006CB400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F78898CF1F973290006CB400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F78898D51F9733CB006CB400 /* WBMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBMainViewController.swift; sourceTree = "<group>"; };
+		F78898E41F973612006CB400 /* WBNavgationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavgationController.swift; sourceTree = "<group>"; };
+		F78898E61F973635006CB400 /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		F78899021F973854006CB400 /* WBBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBBaseViewController.swift; sourceTree = "<group>"; };
+		F78899051F973A9A006CB400 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		F78899061F973E28006CB400 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F78899081F9745A7006CB400 /* WBHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBHomeViewController.swift; sourceTree = "<group>"; };
+		F788990A1F9745B1006CB400 /* WBMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBMessageViewController.swift; sourceTree = "<group>"; };
+		F788990C1F9745BF006CB400 /* WBDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDiscoverViewController.swift; sourceTree = "<group>"; };
+		F788990E1F9745CA006CB400 /* WBProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBProfileViewController.swift; sourceTree = "<group>"; };
+		F78899101F9745D6006CB400 /* WBComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeViewController.swift; sourceTree = "<group>"; };
+		F793067B1F9849F3007007C5 /* WBDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDemoViewController.swift; sourceTree = "<group>"; };
+		F793067D1F99868C007007C5 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		F793067F1F998DFF007007C5 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		FF1694010E48564A2E8E7ED5 /* Pods-weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F78898BD1F973290006CB400 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B7F87F7DAD72981DE8D2480 /* Pods_weibo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0735E693CE9F8039AABE15E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF1694010E48564A2E8E7ED5 /* Pods-weibo.debug.xcconfig */,
+				9343EC685D9002895E274605 /* Pods-weibo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		21513CF10DE3BAF319D78513 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1297488D899E9D5302EFCEB8 /* Pods_weibo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7001C641FA18674007B6FDE /* VisitorVIew */ = {
+			isa = PBXGroup;
+			children = (
+				F7001C651FA1868D007B6FDE /* WBVisitorView.swift */,
+			);
+			path = VisitorVIew;
+			sourceTree = "<group>";
+		};
+		F7001C9B1FA2D40C007B6FDE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F7001C9C1FA2D446007B6FDE /* WBNetworkManager.swift */,
+				F7001C9E1FA30800007B6FDE /* WBNetworkManager+Extension.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F78898B71F973290006CB400 = {
+			isa = PBXGroup;
+			children = (
+				F78899061F973E28006CB400 /* Default-568h@2x.png */,
+				F78898C21F973290006CB400 /* weibo */,
+				F78898C11F973290006CB400 /* Products */,
+				0735E693CE9F8039AABE15E8 /* Pods */,
+				21513CF10DE3BAF319D78513 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F78898C11F973290006CB400 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F78898C01F973290006CB400 /* weibo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F78898C21F973290006CB400 /* weibo */ = {
+			isa = PBXGroup;
+			children = (
+				F78898D91F973523006CB400 /* Classes */,
+				F78898C31F973290006CB400 /* AppDelegate.swift */,
+				F7001C911FA1938B007B6FDE /* weibo-Bridging-Header.h */,
+				F701C80D1F98385000473AC0 /* WBtest.h */,
+				F701C80E1F98385000473AC0 /* WBtest.m */,
+				F78898CA1F973290006CB400 /* Assets.xcassets */,
+				F78898CF1F973290006CB400 /* Info.plist */,
+			);
+			path = weibo;
+			sourceTree = "<group>";
+		};
+		F78898D91F973523006CB400 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F78898DD1F973553006CB400 /* Tools */,
+				F78898DC1F973548006CB400 /* Model */,
+				F78898DB1F97353D006CB400 /* ViewModel */,
+				F78898DA1F973530006CB400 /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F78898DA1F973530006CB400 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F78898E31F9735C9006CB400 /* Main */,
+				F78898E21F9735A7006CB400 /* Compose */,
+				F78898E11F97359A006CB400 /* Profile */,
+				F78898E01F97358F006CB400 /* Discover */,
+				F78898DF1F973585006CB400 /* Message */,
+				F78898DE1F97357C006CB400 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F78898DB1F97353D006CB400 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7001CA21FA322C4007B6FDE /* WBStatusListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F78898DC1F973548006CB400 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7001CA01FA31F0B007B6FDE /* WBStatus.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F78898DD1F973553006CB400 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F7001C9B1FA2D40C007B6FDE /* Network */,
+				F78899041F973A1C006CB400 /* Extension */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F78898DE1F97357C006CB400 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F78899081F9745A7006CB400 /* WBHomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F78898DF1F973585006CB400 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				F788990A1F9745B1006CB400 /* WBMessageViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		F78898E01F97358F006CB400 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				F788990C1F9745BF006CB400 /* WBDiscoverViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		F78898E11F97359A006CB400 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F788990E1F9745CA006CB400 /* WBProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F78898E21F9735A7006CB400 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				F78899101F9745D6006CB400 /* WBComposeViewController.swift */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		F78898E31F9735C9006CB400 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F7001C641FA18674007B6FDE /* VisitorVIew */,
+				F793067A1F9849C7007007C5 /* test */,
+				F78898E61F973635006CB400 /* main.json */,
+				F78898D51F9733CB006CB400 /* WBMainViewController.swift */,
+				F78898E41F973612006CB400 /* WBNavgationController.swift */,
+				F78899021F973854006CB400 /* WBBaseViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F78899041F973A1C006CB400 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F7001C971FA1AC45007B6FDE /* UIButton+CZAddition.h */,
+				F7001C951FA1AC45007B6FDE /* UIButton+CZAddition.m */,
+				F7001C981FA1AC45007B6FDE /* UIColor+CZAddition.h */,
+				F7001C961FA1AC45007B6FDE /* UIColor+CZAddition.m */,
+				F7001C931FA1939D007B6FDE /* UILabel+CZAddition.h */,
+				F7001C921FA1939D007B6FDE /* UILabel+CZAddition.m */,
+				F78899051F973A9A006CB400 /* Bundle+Extensions.swift */,
+				F793067D1F99868C007007C5 /* UIBarButtonItem+Extension.swift */,
+				F793067F1F998DFF007007C5 /* UIScreen+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F793067A1F9849C7007007C5 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				F793067B1F9849F3007007C5 /* WBDemoViewController.swift */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F78898BF1F973290006CB400 /* weibo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F78898D21F973290006CB400 /* Build configuration list for PBXNativeTarget "weibo" */;
+			buildPhases = (
+				145EE8A30FF4AB9A212F1586 /* [CP] Check Pods Manifest.lock */,
+				F78898BC1F973290006CB400 /* Sources */,
+				F78898BD1F973290006CB400 /* Frameworks */,
+				F78898BE1F973290006CB400 /* Resources */,
+				46746B8B45FE3869CD6EF87F /* [CP] Embed Pods Frameworks */,
+				1F71953136CE01DCFA8308D6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = weibo;
+			productName = weibo;
+			productReference = F78898C01F973290006CB400 /* weibo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F78898B81F973290006CB400 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WB;
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "叮咚钱包富银";
+				TargetAttributes = {
+					F78898BF1F973290006CB400 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = F78898BB1F973290006CB400 /* Build configuration list for PBXProject "weibo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F78898B71F973290006CB400;
+			productRefGroup = F78898C11F973290006CB400 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F78898BF1F973290006CB400 /* weibo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F78898BE1F973290006CB400 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F78898CB1F973290006CB400 /* Assets.xcassets in Resources */,
+				F78899071F973E28006CB400 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		145EE8A30FF4AB9A212F1586 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-weibo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F71953136CE01DCFA8308D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weibo/Pods-weibo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46746B8B45FE3869CD6EF87F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-weibo/Pods-weibo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weibo/Pods-weibo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F78898BC1F973290006CB400 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F78899031F973854006CB400 /* WBBaseViewController.swift in Sources */,
+				F788990F1F9745CA006CB400 /* WBProfileViewController.swift in Sources */,
+				F788990D1F9745BF006CB400 /* WBDiscoverViewController.swift in Sources */,
+				F78898D61F9733CB006CB400 /* WBMainViewController.swift in Sources */,
+				F7001C9A1FA1AC45007B6FDE /* UIColor+CZAddition.m in Sources */,
+				F793067E1F99868D007007C5 /* UIBarButtonItem+Extension.swift in Sources */,
+				F701C80F1F98385000473AC0 /* WBtest.m in Sources */,
+				F7001C661FA1868D007B6FDE /* WBVisitorView.swift in Sources */,
+				F78899091F9745A7006CB400 /* WBHomeViewController.swift in Sources */,
+				F79306801F998DFF007007C5 /* UIScreen+Extension.swift in Sources */,
+				F78899111F9745D6006CB400 /* WBComposeViewController.swift in Sources */,
+				F7001C9F1FA30800007B6FDE /* WBNetworkManager+Extension.swift in Sources */,
+				F7001C9D1FA2D446007B6FDE /* WBNetworkManager.swift in Sources */,
+				F78898E51F973612006CB400 /* WBNavgationController.swift in Sources */,
+				F7001CA11FA31F0B007B6FDE /* WBStatus.swift in Sources */,
+				F793067C1F9849F3007007C5 /* WBDemoViewController.swift in Sources */,
+				F7001C941FA1939D007B6FDE /* UILabel+CZAddition.m in Sources */,
+				F78898C41F973290006CB400 /* AppDelegate.swift in Sources */,
+				F7001C991FA1AC45007B6FDE /* UIButton+CZAddition.m in Sources */,
+				F7001CA31FA322C4007B6FDE /* WBStatusListViewModel.swift in Sources */,
+				F788990B1F9745B1006CB400 /* WBMessageViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F78898D01F973290006CB400 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F78898D11F973290006CB400 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F78898D31F973290006CB400 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF1694010E48564A2E8E7ED5 /* Pods-weibo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = weibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dingdongqb.weibo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/weibo/weibo-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F78898D41F973290006CB400 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9343EC685D9002895E274605 /* Pods-weibo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = weibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dingdongqb.weibo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/weibo/weibo-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F78898BB1F973290006CB400 /* Build configuration list for PBXProject "weibo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F78898D01F973290006CB400 /* Debug */,
+				F78898D11F973290006CB400 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F78898D21F973290006CB400 /* Build configuration list for PBXNativeTarget "weibo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F78898D31F973290006CB400 /* Debug */,
+				F78898D41F973290006CB400 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F78898B81F973290006CB400 /* Project object */;
+}
