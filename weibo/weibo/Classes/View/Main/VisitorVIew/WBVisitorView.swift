@@ -61,8 +61,6 @@ class WBVisitorView: UIView {
         animation.isRemovedOnCompletion = false
         iconView.layer .add(animation, forKey: "animation")
     }
-    
-  
 }
 
 extension WBVisitorView {

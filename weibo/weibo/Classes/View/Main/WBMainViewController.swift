@@ -24,6 +24,9 @@ class WBMainViewController: UITabBarController {
         
         //设置代理
         delegate = self
+        
+        //注册登录通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
     }
     
     deinit {
@@ -40,6 +43,10 @@ class WBMainViewController: UITabBarController {
     
     @objc private func composeStatus() {
         print("撰写微博")
+    }
+    
+    @objc private func userLogin() {
+        print("执行登录")
     }
 
 }
@@ -82,10 +89,16 @@ extension WBMainViewController: UITabBarControllerDelegate {
 //定时器相关代码
 extension WBMainViewController {
     private func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateUnreadAPI), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateUnreadAPI), userInfo: nil, repeats: true)
     }
     
     @objc private func updateUnreadAPI() {
+        
+        guard WBNetworkManager.shared.userLogon != false else {
+            print("必须要登录才能定时刷新")
+            return
+        }
+        
         WBNetworkManager.shared.unreadCount { (count) in
             print("有\(count)未读信息")
             self.tabBar.items![0].badgeValue = count > 0 ? "\(count)" : nil

@@ -19,13 +19,17 @@ let access_token = "2.00RAPh5Goi6xEDa8735df4dcHtLvjB"
 
 class WBNetworkManager: AFHTTPSessionManager {
 
-    private  var accessToken: String? = "2.00RAPh5Goi6xEDa8735df4dcHtLvjB"
+    private  var accessToken: String?
 
     static let shared = WBNetworkManager()
+    var userLogon: Bool {
+        return accessToken != nil
+    }
     
     func tokenRequest(method: WBNetWorkMethod = .GET, URLString: String, parameters: [String: AnyObject]?, completion:  @escaping ( _ json: Any?,  _ isSuccess:Bool) -> ()) {
         
         guard accessToken != nil else {
+            print("缺少token")
             completion(nil, false)
             return
         }

@@ -16,6 +16,7 @@
 		F7001C9F1FA30800007B6FDE /* WBNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001C9E1FA30800007B6FDE /* WBNetworkManager+Extension.swift */; };
 		F7001CA11FA31F0B007B6FDE /* WBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001CA01FA31F0B007B6FDE /* WBStatus.swift */; };
 		F7001CA31FA322C4007B6FDE /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001CA21FA322C4007B6FDE /* WBStatusListViewModel.swift */; };
+		F7001CA51FA80EED007B6FDE /* WBCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001CA41FA80EED007B6FDE /* WBCommon.swift */; };
 		F701C80F1F98385000473AC0 /* WBtest.m in Sources */ = {isa = PBXBuildFile; fileRef = F701C80E1F98385000473AC0 /* WBtest.m */; };
 		F78898C41F973290006CB400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78898C31F973290006CB400 /* AppDelegate.swift */; };
 		F78898CB1F973290006CB400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78898CA1F973290006CB400 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		F7001C9E1FA30800007B6FDE /* WBNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		F7001CA01FA31F0B007B6FDE /* WBStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatus.swift; sourceTree = "<group>"; };
 		F7001CA21FA322C4007B6FDE /* WBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusListViewModel.swift; sourceTree = "<group>"; };
+		F7001CA41FA80EED007B6FDE /* WBCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBCommon.swift; sourceTree = "<group>"; };
 		F701C80D1F98385000473AC0 /* WBtest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBtest.h; sourceTree = "<group>"; };
 		F701C80E1F98385000473AC0 /* WBtest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBtest.m; sourceTree = "<group>"; };
 		F78898C01F973290006CB400 /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 			children = (
 				F7001C9B1FA2D40C007B6FDE /* Network */,
 				F78899041F973A1C006CB400 /* Extension */,
+				F7001CA41FA80EED007B6FDE /* WBCommon.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				F78899091F9745A7006CB400 /* WBHomeViewController.swift in Sources */,
 				F79306801F998DFF007007C5 /* UIScreen+Extension.swift in Sources */,
 				F78899111F9745D6006CB400 /* WBComposeViewController.swift in Sources */,
+				F7001CA51FA80EED007B6FDE /* WBCommon.swift in Sources */,
 				F7001C9F1FA30800007B6FDE /* WBNetworkManager+Extension.swift in Sources */,
 				F7001C9D1FA2D446007B6FDE /* WBNetworkManager.swift in Sources */,
 				F78898E51F973612006CB400 /* WBNavgationController.swift in Sources */,

@@ -18,8 +18,6 @@ class WBBaseViewController: UIViewController, UIGestureRecognizerDelegate {
     /// 上拉刷新标记
     var isPullup = false
     
-    //用户登录状态
-    var userLogon = true
     
     
     //访客信息
@@ -28,7 +26,7 @@ class WBBaseViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        loadData()
+        WBNetworkManager.shared.userLogon ? loadData() : ()
     }
     
     @objc func loadData() {
@@ -39,6 +37,8 @@ class WBBaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
      @objc private func loginAction() {
         print("登录")
+        //发送登录通知，要mianViewController执行登录
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
     }
     
     @objc private func registerAction() {
@@ -77,7 +77,7 @@ extension WBBaseViewController {
    
    private func setUI() {
         automaticallyAdjustsScrollViewInsets = false
-        userLogon ? createTableView() : setVisitorView()
+        WBNetworkManager.shared.userLogon ? createTableView() : setVisitorView()
     }
     
     
@@ -93,9 +93,7 @@ extension WBBaseViewController {
     private func setNoLoginNavBarItems() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登录", target: self, action: #selector(loginAction))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", target: self, action: #selector(registerAction))
-
     }
-
 }
 
 extension WBBaseViewController: UITableViewDelegate, UITableViewDataSource {
