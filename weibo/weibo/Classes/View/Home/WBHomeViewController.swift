@@ -43,7 +43,7 @@ class WBHomeViewController: WBBaseViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(rightButtomAction))
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         automaticallyAdjustsScrollViewInsets = false
-        
+        setupTitileBtn()
     }
 }
 
@@ -62,5 +62,17 @@ extension WBHomeViewController {
 }
 
 extension WBHomeViewController {
+    private func setupTitileBtn() {
+        let btn: UIButton = UIButton.cz_textButton(WBNetworkManager.shared.userAccount.screen_name, fontSize: 17, normalColor: UIColor.darkGray, highlightedColor: UIColor.black)
+        
+        btn.setImage(UIImage(named: "navigationbar_arrow_down"), for: .normal)
+        btn.setImage(UIImage(named: "navigationbar_arrow_up"), for: .selected)
+        btn.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
+        btn.image(with: .right, space: 15)
+        navigationItem.titleView = btn
+    }
     
+    @objc private func btnAction(btn: UIButton) {
+        btn.isSelected = !btn.isSelected
+    }
 }

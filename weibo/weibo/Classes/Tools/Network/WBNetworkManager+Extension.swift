@@ -38,3 +38,46 @@ extension WBNetworkManager {
     }
     
 }
+
+
+// MARK: - OAuth 相关请求
+extension WBNetworkManager {
+    
+    func requestAccessToken(code: String, complete: @escaping (_ isSuccess: Bool)->()) {
+        
+        let urlStr = "https://api.weibo.com/oauth2/access_token"
+        let params = ["client_id": WBAppKey,
+                      "client_secret":WBAppSecret,
+                      "grant_type":"authorization_code",
+                      "code":code,
+                      "redirect_uri":WBRedirectUri]
+        
+        weak var weakSelf = self
+        request(method: .POST, URLString: urlStr, parameters: params as [String : AnyObject]) { (json, isSuccess) in
+            weakSelf?.userAccount.yy_modelSet(with: json as! [AnyHashable : Any])
+            print(weakSelf?.userAccount ?? nil)
+            //缓存到沙盒
+            
+            //登录成功，获取用户信息，
+            weakSelf?.requestUserInfo(complete: { (dict) in
+                weakSelf?.userAccount.yy_modelSet(with: dict as [AnyHashable : Any])
+                print(weakSelf?.userAccount ?? nil)
+                weakSelf?.userAccount.save()
+                complete(isSuccess)
+            })
+            
+        }
+    }
+}
+
+//获取用户名和头像
+extension WBNetworkManager {
+    func requestUserInfo(complete: @escaping (_ dic: [String: AnyObject])->()) {
+        let urlStr = "https://api.weibo.com/2/users/show.json"
+        let params = ["uid": self.userAccount.uid]
+        
+        tokenRequest(URLString: urlStr, parameters: params as [String : AnyObject]) { (json, isSuccess) in
+            complete((json as? [String: AnyObject]) ?? [:])
+        }
+    }
+}

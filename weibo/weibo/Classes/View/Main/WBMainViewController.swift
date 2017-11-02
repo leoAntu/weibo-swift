@@ -21,7 +21,7 @@ class WBMainViewController: UITabBarController {
         setupChildController()
         setupComposeButton()
         setupTimer()
-        
+        loadStartLaunchView()
         //设置代理
         delegate = self
         
@@ -47,6 +47,9 @@ class WBMainViewController: UITabBarController {
     
     @objc private func userLogin() {
         print("执行登录")
+        
+        let nav = WBNavgationController(rootViewController: WBOAuthViewController())
+        present(nav, animated:true, completion: nil)
     }
 
 }
@@ -89,7 +92,7 @@ extension WBMainViewController: UITabBarControllerDelegate {
 //定时器相关代码
 extension WBMainViewController {
     private func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateUnreadAPI), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateUnreadAPI), userInfo: nil, repeats: true)
     }
     
     @objc private func updateUnreadAPI() {
@@ -182,4 +185,28 @@ extension WBMainViewController {
         
     }
     
+}
+
+
+// MARK: - 加载启动页和欢迎页面
+extension WBMainViewController {
+    private func loadStartLaunchView() {
+        let v = isNewVersion ? WBNewFeatureView() : WBWelcomeView.welcomeView()
+        v.frame = view.bounds
+        view.addSubview(v)
+    }
+    
+    private var isNewVersion:Bool {
+        
+        //获取当前version
+        let currentVersion: String = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? ""
+        //获取沙盒Document目录下文件verison
+        let path = ("version" as NSString).cz_appendDocumentDir()
+        let sanboxVersion = (try? String(contentsOfFile: path!)) ?? ""
+    
+        //存储当前版本到沙盒
+       _ = try? currentVersion.write(toFile: path!, atomically: true, encoding: .utf8)
+        //比较两个版本
+        return currentVersion != sanboxVersion
+    }
 }

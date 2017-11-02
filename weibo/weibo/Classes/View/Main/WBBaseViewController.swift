@@ -18,15 +18,23 @@ class WBBaseViewController: UIViewController, UIGestureRecognizerDelegate {
     /// 上拉刷新标记
     var isPullup = false
     
-    
-    
     //访客信息
     var visitorInfo: [String: String]?
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         WBNetworkManager.shared.userLogon ? loadData() : ()
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: NSNotification.Name(rawValue:WBUserLoginSuccessedNotification), object: nil)
+    }
+    
+    @objc private func loginSuccess() {
+        view = nil
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue:WBUserLoginSuccessedNotification), object: nil)
     }
     
     @objc func loadData() {
@@ -61,7 +69,8 @@ class WBBaseViewController: UIViewController, UIGestureRecognizerDelegate {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView?.tableFooterView = UIView()
         view.insertSubview(tableView!, belowSubview: (self.navigationController?.navigationBar)!)
-        
+        //设置滚动条的位置，和tableView对齐
+        tableView?.scrollIndicatorInsets = (tableView?.contentInset)!
         tableView?.delegate = self
         tableView?.dataSource = self
         

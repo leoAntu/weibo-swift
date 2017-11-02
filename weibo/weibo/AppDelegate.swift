@@ -8,6 +8,8 @@
 
 import UIKit
 import UserNotifications
+import SVProgressHUD
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,22 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+       
         
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
-                print("授权" + (success ? "成功" : "失败"))
-            }
-        } else {
-            //取得用户授权显示通知（通知，声音，badgeNumber）
-            //10.0后被废弃了
-            let notifySetting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-             application.registerUserNotificationSettings(notifySetting)
-        }
-    
-
-        
-        
-        
+        setupAdditions()
         window = UIWindow();
         window?.backgroundColor = UIColor.white;
         
@@ -66,5 +55,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate {
+    
+    private func setupAdditions() {
+        
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .carPlay, .sound]) { (success, error) in
+                print("授权" + (success ? "成功" : "失败"))
+            }
+        } else {
+            //取得用户授权显示通知（通知，声音，badgeNumber）
+            //10.0后被废弃了
+            let notifySetting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(notifySetting)
+        }
+        
+        //设置最少时间
+        SVProgressHUD.setMinimumDismissTimeInterval(2)
+        //设置网络加载器
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+    }
 }
 

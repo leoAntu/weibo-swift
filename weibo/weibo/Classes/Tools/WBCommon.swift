@@ -11,4 +11,10 @@
 
 import Foundation
 
+//微博信息
+let WBAppKey = "2821664070"
+let WBAppSecret = "c5195b66a18c6950999e376fd97f0a12"
+let WBRedirectUri = "https://www.dingdongqb.com"
+
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
+let WBUserLoginSuccessedNotification = "WBUserLoginSuccessedNotification"
