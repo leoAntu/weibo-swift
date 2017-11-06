@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WBNewFeatureView" customModule="weibo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOR-Rd-aHa">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdo-cM-Ct3">
+                            <rect key="frame" x="155" y="548" width="105" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="Xs3-Vd-AW0"/>
+                                <constraint firstAttribute="width" constant="105" id="gkw-mn-8Q3"/>
+                            </constraints>
+                            <state key="normal" title="进入首页" backgroundImage="new_feature_finish_button"/>
+                            <state key="highlighted" backgroundImage="new_feature_finish_button_highlighted"/>
+                            <connections>
+                                <action selector="enterBtnAciton:" destination="iN0-l3-epB" eventType="touchUpInside" id="3AE-uT-tD9"/>
+                            </connections>
+                        </button>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="w3Q-jE-jgf">
+                            <rect key="frame" x="188" y="607" width="39" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37" id="iJt-sM-FwB"/>
+                                <constraint firstAttribute="width" constant="39" id="v1b-n9-I1b"/>
+                            </constraints>
+                            <color key="pageIndicatorTintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="currentPageIndicatorTintColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </pageControl>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="w3Q-jE-jgf" firstAttribute="centerX" secondItem="Xdo-cM-Ct3" secondAttribute="centerX" id="4jh-dS-WVn"/>
+                        <constraint firstAttribute="bottom" secondItem="Xdo-cM-Ct3" secondAttribute="bottom" constant="153" id="Ebl-qH-gpz"/>
+                        <constraint firstAttribute="trailing" secondItem="Xdo-cM-Ct3" secondAttribute="trailing" constant="154" id="LSc-7f-760"/>
+                        <constraint firstItem="w3Q-jE-jgf" firstAttribute="top" secondItem="Xdo-cM-Ct3" secondAttribute="bottom" constant="24" id="ZGZ-Ht-KCH"/>
+                        <constraint firstItem="Xdo-cM-Ct3" firstAttribute="centerX" secondItem="sOR-Rd-aHa" secondAttribute="centerX" id="gDT-Kh-SJK"/>
+                        <constraint firstItem="Xdo-cM-Ct3" firstAttribute="top" secondItem="sOR-Rd-aHa" secondAttribute="top" constant="548" id="kNn-VL-i8P"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sOR-Rd-aHa" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="HWy-0u-uPs"/>
+                <constraint firstItem="sOR-Rd-aHa" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="XRH-jY-Ian"/>
+                <constraint firstItem="sOR-Rd-aHa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cRr-Th-4L5"/>
+                <constraint firstItem="sOR-Rd-aHa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gZp-4B-aTU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="enterBtn" destination="Xdo-cM-Ct3" id="62X-CF-2I5"/>
+                <outlet property="pageControl" destination="w3Q-jE-jgf" id="jPz-3l-LZC"/>
+                <outlet property="scrollView" destination="sOR-Rd-aHa" id="ju3-Zs-WMt"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="114"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="new_feature_finish_button" width="105" height="36"/>
+        <image name="new_feature_finish_button_highlighted" width="105" height="36"/>
+    </resources>
+</document>

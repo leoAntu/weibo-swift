@@ -18,17 +18,17 @@ class WBWelcomeView: UIView {
     @IBOutlet weak var nameLab: UILabel!
     @IBOutlet weak var bottomLayout: NSLayoutConstraint!
     
-    
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         //还没有和代码连线建立关系，只是XIB的二进制文件刚刚加载完，在这个方法里面不能处理UI问题
     }
     
+    
+    /// xib加载完后加载，还不能获取UI的frame
     override func awakeFromNib() {
         let urlString = WBNetworkManager.shared.userAccount.avatar_large ?? ""
         let url = URL(string: urlString)
-        avatorView.sd_setImage(with: url, placeholderImage: UIImage(named: "avatar_default_big"), options: [], progress: nil, completed: nil)
+        avatorView.sd_setImage(with: url, placeholderImage:  UIImage(named: "avatar_default_big"), options: [], progress: nil, completed: nil)
     }
     
     class func welcomeView() -> WBWelcomeView {
@@ -60,6 +60,9 @@ class WBWelcomeView: UIView {
         }) { (_) in
             UIView.animate(withDuration: 1, animations: {
                 self.nameLab.alpha = 1
+
+            }, completion: { (bool) in
+                self.removeFromSuperview()
             })
         }
     }

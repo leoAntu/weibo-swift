@@ -58,6 +58,7 @@ class WBNetworkManager: AFHTTPSessionManager {
     func request(method: WBNetWorkMethod = .GET, URLString: String, parameters: [String: AnyObject]?, completion:  @escaping ( _ json: Any?,  _ isSuccess:Bool) -> ()) {
         
         let success = { (dataTask: URLSessionDataTask, json: Any?) -> () in
+            print(json as? AnyObject ?? nil)
             completion(json, true)
         }
 

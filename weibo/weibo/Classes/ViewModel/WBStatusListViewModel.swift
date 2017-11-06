@@ -9,33 +9,42 @@
 //
 
 import UIKit
-import YYModel
 
 class WBStatusListViewModel: NSObject {
 
-    lazy var dataList = [WBStatus]()
+    lazy var dataList = [WBStatusViewModel]()
     
     func loadStatus(pullup: Bool, completion:@escaping (_ isSuccess: Bool) ->()) {
         
-        let since_id = pullup ? 0 : (dataList.first?.id ?? 0)
-        let max_id = pullup ? (dataList.last?.id ?? 0) : 0
+        let since_id = pullup ? 0 : (dataList.first?.status?.id ?? 0)
+        let max_id = pullup ? (dataList.last?.status?.id ?? 0) : 0
         
         weak var weakSelf = self
-        WBNetworkManager.shared.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
+        WBNetworkManager.shared.statusList(since_id: Int64(since_id), max_id: Int64(max_id)) { (list, isSuccess) in
             
             guard list != nil else {
                 completion(isSuccess)
                 return
             }
-            print(list?.count ?? 0)
-            var arr = [WBStatus]()
-            for dic in list! {
-                let model = WBStatus()
-                model.id = dic["id"] as! Int64
-                model.text = dic["text"] as? String
-                arr.append(model)
+            
+            if !isSuccess {
+                completion(isSuccess)
+                return
             }
             
+            var arr = [WBStatusViewModel]()
+            
+            for dict in list ?? []{
+                guard let model = WBStatus.yy_model(withJSON: dict) else {
+                    continue
+                }
+                
+                let status = WBStatusViewModel(status: model)
+            
+                arr.append(status)
+            }
+            
+
             if pullup {
                 weakSelf?.dataList =  (weakSelf?.dataList)! + arr 
             } else {

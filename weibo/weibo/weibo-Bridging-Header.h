@@ -12,5 +12,7 @@
 #import "WBUserAccount.h"
 #import "UIButton+Custom.h"
 #import "NSString+CZPath.h"
+#import "WBUser.h"
+#import "WBStatus.h"
 
 

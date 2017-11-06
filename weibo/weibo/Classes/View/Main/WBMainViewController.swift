@@ -82,6 +82,12 @@ extension WBMainViewController: UITabBarControllerDelegate {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
                 vc.loadData()
             })
+            
+            
+            //清除圆角提示
+            self.tabBar.items![0].badgeValue =  nil
+            //未读信息在桌面app中显示未读信息，这个需要用户授权才能显示。
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
         
         //判断控制器是否是UIviewcontroller,如果是就不跳转
@@ -191,7 +197,8 @@ extension WBMainViewController {
 // MARK: - 加载启动页和欢迎页面
 extension WBMainViewController {
     private func loadStartLaunchView() {
-        let v = isNewVersion ? WBNewFeatureView() : WBWelcomeView.welcomeView()
+       
+        let v = isNewVersion ? WBNewFeature2(frame: UIScreen.main.bounds) : WBWelcomeView.welcomeView()
         v.frame = view.bounds
         view.addSubview(v)
     }
@@ -208,5 +215,7 @@ extension WBMainViewController {
        _ = try? currentVersion.write(toFile: path!, atomically: true, encoding: .utf8)
         //比较两个版本
         return currentVersion != sanboxVersion
+//        return true
+
     }
 }

@@ -41,7 +41,13 @@ class WBHomeViewController: WBBaseViewController {
     override func createTableView() {
         super.createTableView()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(rightButtomAction))
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        //注册cell
+        tableView?.register(UINib(nibName: "WBStatuCell", bundle: nil), forCellReuseIdentifier: cellId)
+        //预估行高
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 300;
+        //取消分割线
+        tableView?.separatorStyle = .none
         automaticallyAdjustsScrollViewInsets = false
         setupTitileBtn()
     }
@@ -54,13 +60,15 @@ extension WBHomeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-        let model: WBStatus = viewModel.dataList[indexPath.row]
-        cell?.textLabel?.text = "\(model.text ?? "")"
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! WBStatuCell
+        let model: WBStatusViewModel = viewModel.dataList[indexPath.row]
+        cell.displayWithModel(model: model)
+        return cell
     }
 }
 
+
+// MARK: - 设置UI
 extension WBHomeViewController {
     private func setupTitileBtn() {
         let btn: UIButton = UIButton.cz_textButton(WBNetworkManager.shared.userAccount.screen_name, fontSize: 17, normalColor: UIColor.darkGray, highlightedColor: UIColor.black)
