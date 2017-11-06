@@ -69,9 +69,47 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etr-I0-4AC" userLabel="bottomView">
                         <rect key="frame" x="0.0" y="196" width="375" height="28"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knB-ne-BLk">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="转发" image="timeline_icon_retweet" backgroundImage="timeline_card_bottom_background">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ly-RU-9Xw">
+                                <rect key="frame" x="125" y="0.0" width="125" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="评论" image="timeline_icon_retweet" backgroundImage="timeline_card_bottom_background">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN5-ou-XVU">
+                                <rect key="frame" x="250" y="0.0" width="125" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="赞" image="timeline_icon_retweet" backgroundImage="timeline_card_bottom_background">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.72390407986111116" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9Ly-RU-9Xw" firstAttribute="top" secondItem="etr-I0-4AC" secondAttribute="top" id="1pu-1G-N9U"/>
+                            <constraint firstAttribute="bottom" secondItem="DN5-ou-XVU" secondAttribute="bottom" id="2Hu-fn-uxC"/>
+                            <constraint firstItem="DN5-ou-XVU" firstAttribute="leading" secondItem="9Ly-RU-9Xw" secondAttribute="trailing" id="6Dc-aq-0DT"/>
+                            <constraint firstItem="9Ly-RU-9Xw" firstAttribute="width" secondItem="knB-ne-BLk" secondAttribute="width" id="GWg-1V-GLf"/>
+                            <constraint firstItem="knB-ne-BLk" firstAttribute="leading" secondItem="etr-I0-4AC" secondAttribute="leading" id="Hu1-UE-ntC"/>
+                            <constraint firstAttribute="bottom" secondItem="9Ly-RU-9Xw" secondAttribute="bottom" id="L2v-oo-7hE"/>
                             <constraint firstAttribute="height" constant="28" id="RaV-Lb-Dc2"/>
+                            <constraint firstItem="DN5-ou-XVU" firstAttribute="width" secondItem="knB-ne-BLk" secondAttribute="width" id="SHk-LY-41s"/>
+                            <constraint firstItem="DN5-ou-XVU" firstAttribute="top" secondItem="etr-I0-4AC" secondAttribute="top" id="aXf-Ri-o3Y"/>
+                            <constraint firstItem="knB-ne-BLk" firstAttribute="top" secondItem="etr-I0-4AC" secondAttribute="top" id="hhs-Dn-vLc"/>
+                            <constraint firstItem="9Ly-RU-9Xw" firstAttribute="leading" secondItem="knB-ne-BLk" secondAttribute="trailing" id="nhX-6B-xcC"/>
+                            <constraint firstAttribute="bottom" secondItem="knB-ne-BLk" secondAttribute="bottom" id="vCA-aZ-Gtg"/>
+                            <constraint firstAttribute="trailing" secondItem="DN5-ou-XVU" secondAttribute="trailing" id="w3t-DM-Lyp"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -115,5 +153,7 @@
     <resources>
         <image name="avatar_enterprise_vip" width="14" height="14"/>
         <image name="common_icon_membership_level1" width="14" height="14"/>
+        <image name="timeline_card_bottom_background" width="22" height="36"/>
+        <image name="timeline_icon_retweet" width="18" height="18"/>
     </resources>
 </document>
