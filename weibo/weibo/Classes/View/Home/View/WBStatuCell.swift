@@ -28,7 +28,7 @@ class WBStatuCell: UITableViewCell {
     @IBOutlet weak var retweetedBtn: UIButton!
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
-    
+    @IBOutlet weak var pictureView: WBStatusPictureView!
     
     
     override func awakeFromNib() {
@@ -52,15 +52,18 @@ class WBStatuCell: UITableViewCell {
         retweetedBtn .setTitle(model?.retweetedBtnTitle, for: .normal)
         commentBtn .setTitle(model?.commentBtnTitle, for: .normal)
         likeBtn .setTitle(model?.likeBtnTitle, for: .normal)
+        
+        
+// MARK: - 设置图片view
+        pictureView.heightConstant.constant = 100
     }
 
 }
 
+
+// MARK: - Action
 extension WBStatuCell {
-    
-    /// action
-    ///
-    /// - Parameter sender: btn
+
     @IBAction func retweetedBtnAction(_ sender: UIButton) {
         print(sender)
     }

@@ -11,6 +11,12 @@
 
 @implementation WBStatus
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"pic_urls" : [WBStatusPictureModel class]
+             };
+}
+
 - (NSString *)description {
     return self.yy_modelDescription;
 }

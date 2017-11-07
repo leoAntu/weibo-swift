@@ -32,6 +32,8 @@
 		F704BCD31FB0445B004E2A0F /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCD21FB0445B004E2A0F /* WBStatusViewModel.swift */; };
 		F704BCD51FB054F0004E2A0F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCD41FB054F0004E2A0F /* UIImage+Extensions.swift */; };
 		F704BCD71FB0555A004E2A0F /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCD61FB0555A004E2A0F /* UIImageView+WebImage.swift */; };
+		F704BCD91FB14DF6004E2A0F /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCD81FB14DF6004E2A0F /* WBStatusPictureView.swift */; };
+		F704BCDC1FB15444004E2A0F /* WBStatusPictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F704BCDB1FB15444004E2A0F /* WBStatusPictureModel.m */; };
 		F71BFD3F1FAB1655003ACD40 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71BFD3E1FAB1655003ACD40 /* WBWelcomeView.xib */; };
 		F71BFD411FAC02E8003ACD40 /* WBNewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71BFD401FAC02E8003ACD40 /* WBNewFeatureView.xib */; };
 		F71BFD431FAC1471003ACD40 /* WBNewFeature2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71BFD421FAC1471003ACD40 /* WBNewFeature2.swift */; };
@@ -90,6 +92,9 @@
 		F704BCD21FB0445B004E2A0F /* WBStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
 		F704BCD41FB054F0004E2A0F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		F704BCD61FB0555A004E2A0F /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
+		F704BCD81FB14DF6004E2A0F /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
+		F704BCDA1FB15444004E2A0F /* WBStatusPictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBStatusPictureModel.h; sourceTree = "<group>"; };
+		F704BCDB1FB15444004E2A0F /* WBStatusPictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBStatusPictureModel.m; sourceTree = "<group>"; };
 		F71BFD3E1FAB1655003ACD40 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		F71BFD401FAC02E8003ACD40 /* WBNewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewFeatureView.xib; sourceTree = "<group>"; };
 		F71BFD421FAC1471003ACD40 /* WBNewFeature2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewFeature2.swift; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 			children = (
 				F704BCC51FB009F5004E2A0F /* WBStatuCell.swift */,
 				F704BCC71FB00A28004E2A0F /* WBStatuCell.xib */,
+				F704BCD81FB14DF6004E2A0F /* WBStatusPictureView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +212,8 @@
 				F704BCCD1FB03C46004E2A0F /* WBUser.m */,
 				F704BCCF1FB03FC1004E2A0F /* WBStatus.h */,
 				F704BCD01FB03FC1004E2A0F /* WBStatus.m */,
+				F704BCDA1FB15444004E2A0F /* WBStatusPictureModel.h */,
+				F704BCDB1FB15444004E2A0F /* WBStatusPictureModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -539,6 +547,7 @@
 				F704BCD51FB054F0004E2A0F /* UIImage+Extensions.swift in Sources */,
 				F7001C9D1FA2D446007B6FDE /* WBNetworkManager.swift in Sources */,
 				F704BCD31FB0445B004E2A0F /* WBStatusViewModel.swift in Sources */,
+				F704BCDC1FB15444004E2A0F /* WBStatusPictureModel.m in Sources */,
 				F704BCCE1FB03C46004E2A0F /* WBUser.m in Sources */,
 				F78898E51F973612006CB400 /* WBNavgationController.swift in Sources */,
 				F704BCC61FB009F5004E2A0F /* WBStatuCell.swift in Sources */,
@@ -550,6 +559,7 @@
 				F7001CC21FAB0EE9007B6FDE /* WBWelcomeView.swift in Sources */,
 				F7001C991FA1AC45007B6FDE /* UIButton+CZAddition.m in Sources */,
 				F7001CA31FA322C4007B6FDE /* WBStatusListViewModel.swift in Sources */,
+				F704BCD91FB14DF6004E2A0F /* WBStatusPictureView.swift in Sources */,
 				F704BCD11FB03FC1004E2A0F /* WBStatus.m in Sources */,
 				F7001CBA1FA9CF78007B6FDE /* NSString+CZHash.m in Sources */,
 				F788990B1F9745B1006CB400 /* WBMessageViewController.swift in Sources */,

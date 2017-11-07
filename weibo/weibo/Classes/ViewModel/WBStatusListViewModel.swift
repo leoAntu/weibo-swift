@@ -34,7 +34,7 @@ class WBStatusListViewModel: NSObject {
             
             var arr = [WBStatusViewModel]()
             
-            for dict in list ?? []{
+            for dict in list ?? [] {
                 guard let model = WBStatus.yy_model(withJSON: dict) else {
                     continue
                 }

@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <YYModel/YYModel.h>
 #import "WBUser.h"
-@interface WBStatus : NSObject
+#import "WBStatusPictureModel.h"
 
+@interface WBStatus : NSObject
 
 @property (nonatomic, assign) NSInteger id;
 //微博信息
@@ -24,5 +25,10 @@
 //点赞数
 @property (nonatomic, assign) NSInteger attitudes_count;
 
+@property (nonatomic, strong) NSArray<WBStatusPictureModel *> *pic_urls;
+
+
+// YYmodel中遇到数组，数组中包含model，需要实现此方法
++ (NSDictionary *)modelContainerPropertyGenericClass;
 
 @end
