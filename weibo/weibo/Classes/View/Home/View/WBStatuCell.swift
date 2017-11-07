@@ -25,6 +25,12 @@ class WBStatuCell: UITableViewCell {
     //内容
     @IBOutlet weak var contentLab: UILabel!
     
+    @IBOutlet weak var retweetedBtn: UIButton!
+    @IBOutlet weak var commentBtn: UIButton!
+    @IBOutlet weak var likeBtn: UIButton!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -40,7 +46,32 @@ class WBStatuCell: UITableViewCell {
        
         nameLab.text = model?.status?.user.screen_name
         contentLab.text = model?.status?.text
-    
+        
+        
+// MARK: - 设置按钮标题
+        retweetedBtn .setTitle(model?.retweetedBtnTitle, for: .normal)
+        commentBtn .setTitle(model?.commentBtnTitle, for: .normal)
+        likeBtn .setTitle(model?.likeBtnTitle, for: .normal)
     }
 
+}
+
+extension WBStatuCell {
+    
+    /// action
+    ///
+    /// - Parameter sender: btn
+    @IBAction func retweetedBtnAction(_ sender: UIButton) {
+        print(sender)
+    }
+    
+    @IBAction func commentBtnAction(_ sender: UIButton) {
+        print(sender)
+        
+    }
+    
+    @IBAction func likeBtnAction(_ sender: UIButton) {
+        print(sender)
+        
+    }
 }

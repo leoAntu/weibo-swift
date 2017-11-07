@@ -20,6 +20,13 @@ class WBStatusViewModel : CustomStringConvertible{
     
     var vipIcon: UIImage?  // -1 没认证 0 认证用户 2，3，5企业认证 220达人
 
+    var retweetedBtnTitle: String?
+    
+    var commentBtnTitle: String?
+
+    var likeBtnTitle: String?
+
+    
     init(status: WBStatus) {
         self.status = status
         
@@ -39,10 +46,29 @@ class WBStatusViewModel : CustomStringConvertible{
         default:
             vipIcon = nil
         }
+        
+        //设置按钮标题
+        
+        // == 0 显示默认标题，超过10000，显示1万，小于10000,显示实际数值
+    
+        retweetedBtnTitle = countString(count: status.reposts_count, defaultStr: "转发")
+        commentBtnTitle = countString(count: status.comments_count, defaultStr: "评论")
+        likeBtnTitle = countString(count: status.attitudes_count, defaultStr: "点赞")
+    }
+    
+    private func countString(count: Int, defaultStr: String) -> String {
+        if count == 0 {
+            return defaultStr
+        }
+        
+        if count < 10000 {
+            return "\(count)"
+        }
+    
+        return String(format: "%.2f万", count / 10000)
     }
     
     var description: String {
-        
         return status?.description ?? ""
     }
     

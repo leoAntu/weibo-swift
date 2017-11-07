@@ -245,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				F78898DD1F973553006CB400 /* Tools */,
-				F78898DC1F973548006CB400 /* Model */,
 				F78898DB1F97353D006CB400 /* ViewModel */,
 				F78898DA1F973530006CB400 /* View */,
 			);
@@ -272,13 +271,6 @@
 				F704BCD21FB0445B004E2A0F /* WBStatusViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F78898DC1F973548006CB400 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		F78898DD1F973553006CB400 /* Tools */ = {
