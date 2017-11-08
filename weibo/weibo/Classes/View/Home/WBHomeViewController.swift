@@ -9,7 +9,10 @@
 
 import UIKit
 
+//原创微博
 private let cellId = "cellId"
+//转发cell
+private let retweetedId = "retweetedId"
 
 
 class WBHomeViewController: WBBaseViewController {
@@ -43,9 +46,11 @@ class WBHomeViewController: WBBaseViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(rightButtomAction))
         //注册cell
         tableView?.register(UINib(nibName: "WBStatuCell", bundle: nil), forCellReuseIdentifier: cellId)
-        //预估行高
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.estimatedRowHeight = 300;
+        tableView?.register(UINib(nibName: "WBStatuRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedId)
+
+//        //预估行高
+//        tableView?.rowHeight = UITableViewAutomaticDimension
+//        tableView?.estimatedRowHeight = 300;
         //取消分割线
         tableView?.separatorStyle = .none
         automaticallyAdjustsScrollViewInsets = false
@@ -59,11 +64,19 @@ extension WBHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! WBStatuCell
         let model: WBStatusViewModel = viewModel.dataList[indexPath.row]
+
+        let identifier = (model.isRetweeted == true) ? retweetedId : cellId
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! WBStatuCell
         cell.displayWithModel(model: model)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model: WBStatusViewModel = viewModel.dataList[indexPath.row]
+
+        return model.rowHeight  ?? 0.1
     }
 }
 

@@ -34,6 +34,8 @@
 		F704BCD71FB0555A004E2A0F /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCD61FB0555A004E2A0F /* UIImageView+WebImage.swift */; };
 		F704BCD91FB14DF6004E2A0F /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCD81FB14DF6004E2A0F /* WBStatusPictureView.swift */; };
 		F704BCDC1FB15444004E2A0F /* WBStatusPictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F704BCDB1FB15444004E2A0F /* WBStatusPictureModel.m */; };
+		F704BCDE1FB1B032004E2A0F /* WBStatuRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F704BCDD1FB1B032004E2A0F /* WBStatuRetweetedCell.xib */; };
+		F704BCE11FB30315004E2A0F /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCE01FB30315004E2A0F /* WBRefreshControl.swift */; };
 		F71BFD3F1FAB1655003ACD40 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71BFD3E1FAB1655003ACD40 /* WBWelcomeView.xib */; };
 		F71BFD411FAC02E8003ACD40 /* WBNewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71BFD401FAC02E8003ACD40 /* WBNewFeatureView.xib */; };
 		F71BFD431FAC1471003ACD40 /* WBNewFeature2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71BFD421FAC1471003ACD40 /* WBNewFeature2.swift */; };
@@ -95,6 +97,8 @@
 		F704BCD81FB14DF6004E2A0F /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		F704BCDA1FB15444004E2A0F /* WBStatusPictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBStatusPictureModel.h; sourceTree = "<group>"; };
 		F704BCDB1FB15444004E2A0F /* WBStatusPictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBStatusPictureModel.m; sourceTree = "<group>"; };
+		F704BCDD1FB1B032004E2A0F /* WBStatuRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatuRetweetedCell.xib; sourceTree = "<group>"; };
+		F704BCE01FB30315004E2A0F /* WBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
 		F71BFD3E1FAB1655003ACD40 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		F71BFD401FAC02E8003ACD40 /* WBNewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewFeatureView.xib; sourceTree = "<group>"; };
 		F71BFD421FAC1471003ACD40 /* WBNewFeature2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewFeature2.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 		F704BCC41FB00911004E2A0F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F704BCDD1FB1B032004E2A0F /* WBStatuRetweetedCell.xib */,
 				F704BCC51FB009F5004E2A0F /* WBStatuCell.swift */,
 				F704BCC71FB00A28004E2A0F /* WBStatuCell.xib */,
 				F704BCD81FB14DF6004E2A0F /* WBStatusPictureView.swift */,
@@ -216,6 +221,14 @@
 				F704BCDB1FB15444004E2A0F /* WBStatusPictureModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F704BCDF1FB302BE004E2A0F /* WBRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				F704BCE01FB30315004E2A0F /* WBRefreshControl.swift */,
+			);
+			path = WBRefreshControl;
 			sourceTree = "<group>";
 		};
 		F78898B71F973290006CB400 = {
@@ -284,6 +297,7 @@
 		F78898DD1F973553006CB400 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F704BCDF1FB302BE004E2A0F /* WBRefreshControl */,
 				F7001C9B1FA2D40C007B6FDE /* Network */,
 				F78899041F973A1C006CB400 /* Extension */,
 				F7001CA41FA80EED007B6FDE /* WBCommon.swift */,
@@ -449,6 +463,7 @@
 			files = (
 				F78898CB1F973290006CB400 /* Assets.xcassets in Resources */,
 				F78899071F973E28006CB400 /* Default-568h@2x.png in Resources */,
+				F704BCDE1FB1B032004E2A0F /* WBStatuRetweetedCell.xib in Resources */,
 				F71BFD3F1FAB1655003ACD40 /* WBWelcomeView.xib in Resources */,
 				F704BCC81FB00A28004E2A0F /* WBStatuCell.xib in Resources */,
 				F71BFD411FAC02E8003ACD40 /* WBNewFeatureView.xib in Resources */,
@@ -533,6 +548,7 @@
 				F7001C9A1FA1AC45007B6FDE /* UIColor+CZAddition.m in Sources */,
 				F793067E1F99868D007007C5 /* UIBarButtonItem+Extension.swift in Sources */,
 				F7001CB01FA9CA43007B6FDE /* WBUserAccount.m in Sources */,
+				F704BCE11FB30315004E2A0F /* WBRefreshControl.swift in Sources */,
 				F7001C661FA1868D007B6FDE /* WBVisitorView.swift in Sources */,
 				F78899091F9745A7006CB400 /* WBHomeViewController.swift in Sources */,
 				F7001CA81FA96DBF007B6FDE /* WBOAuthViewController.swift in Sources */,

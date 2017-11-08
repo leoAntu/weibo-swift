@@ -14,6 +14,7 @@
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{
              @"pic_urls" : [WBStatusPictureModel class]
+             
              };
 }
 

@@ -18,3 +18,23 @@ let WBRedirectUri = "https://www.dingdongqb.com"
 
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
 let WBUserLoginSuccessedNotification = "WBUserLoginSuccessedNotification"
+
+
+
+
+
+//定义上边距
+let WBPictureViewOutMargin = Float(11)
+
+//定义item间距
+let WBPictureViewItemMargin = Float(3)
+
+//picview 的总宽度
+let WBPictureViewWidth = UIScreen.wb_screenWidth() - 2 * WBPictureViewOutMargin
+
+//计算单个item的宽度
+let WBPictureViewItemWidth = (WBPictureViewWidth - 2 * WBPictureViewItemMargin) / 3
+
+
+
+

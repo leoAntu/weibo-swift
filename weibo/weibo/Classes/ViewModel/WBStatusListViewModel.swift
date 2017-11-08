@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WBStatusListViewModel: NSObject {
 
@@ -38,21 +39,72 @@ class WBStatusListViewModel: NSObject {
                 guard let model = WBStatus.yy_model(withJSON: dict) else {
                     continue
                 }
-                
                 let status = WBStatusViewModel(status: model)
             
                 arr.append(status)
             }
-            
 
             if pullup {
                 weakSelf?.dataList =  (weakSelf?.dataList)! + arr 
             } else {
                 weakSelf?.dataList = arr + (weakSelf?.dataList)!
+                
             }
             
-            completion(isSuccess)
+            //先缓存，在回掉
+//            completion(isSuccess)
+            weakSelf?.cacheSingleImg(arr: arr, finished: completion)
+
         }
-      
+    }
+    
+    
+    /// 缓存weibo单张图片方法
+    ///
+    /// - Parameter arr:
+    private func cacheSingleImg(arr: [WBStatusViewModel], finished: @escaping (_ isSuccess: Bool) ->()) {
+    
+        //创建调度组
+        let group = DispatchGroup()
+        
+        //记录图片大小，防止下载图片过大，导致内存紧张
+        var length: Int = 0
+        //遍历数组
+        for model in arr {
+            //如果图片数量
+            if model.picUrls?.count != 1 {
+                continue
+            }
+            
+            //获取url
+            guard let urlStr = model.picUrls?[0].thumbnail_pic,
+                let url =  URL(string: urlStr) else {
+                continue
+            }
+            //进组
+            group.enter()
+            
+            //下载单张图片
+            SDWebImageManager.shared().loadImage(with: url, options: [], progress: nil, completed: { (image, data, _, _, _, _) in
+                //累加图片长度
+                length = length + (data?.count ?? 0)
+                //更新单张图片的size
+                model.updateSingleImageSize(image: image)
+                
+                print(" que \(Thread.isMainThread)")
+                
+                //出组
+                group.leave()
+            })
+        
+        }
+        
+        //所有图片下载完就接受notify
+        group.notify(queue: DispatchQueue.main) {
+            print("长度\(length / 1024)k")
+            //最后完成回掉
+            finished(true)
+        }
+        
     }
 }

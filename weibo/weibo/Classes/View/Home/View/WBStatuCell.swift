@@ -30,10 +30,26 @@ class WBStatuCell: UITableViewCell {
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var pictureView: WBStatusPictureView!
     
+    @IBOutlet weak var jumpBtnAction: UIButton!
     
+    @IBAction func jumpBtnAction(_ sender: Any) {
+        print("被转发微博跳转")
+    }
+    
+    @IBOutlet weak var retweetedLab: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        //离屏渲染  -- 异步绘制  能够使cell浏览流畅，但是增加cpu的功耗 如果cell性能已经很好，就不需要离屏渲染，会耗电比较厉害
+        self.layer.drawsAsynchronously = true
+        
+        //栅格化 -- 异步绘制后，生成一张独立图片，cell在屏幕上滚动的时候，本质是图片在滚动
+        // cell 优化。要尽量减少图层的数量。相当于就只有一层，性能会比较好
+        self.layer.shouldRasterize = true
+        //使用栅格化，必须注意指定分辨率，要不然会感觉字体模糊
+        self.layer.rasterizationScale = UIScreen.main.scale
+        
     }
 
     func displayWithModel(model: WBStatusViewModel?) {
@@ -47,17 +63,27 @@ class WBStatuCell: UITableViewCell {
         nameLab.text = model?.status?.user.screen_name
         contentLab.text = model?.status?.text
         
+      
         
 // MARK: - 设置按钮标题
         retweetedBtn .setTitle(model?.retweetedBtnTitle, for: .normal)
         commentBtn .setTitle(model?.commentBtnTitle, for: .normal)
         likeBtn .setTitle(model?.likeBtnTitle, for: .normal)
         
-        
 // MARK: - 设置图片view
-        pictureView.heightConstant.constant = 100
-    }
+        pictureView.urls = model?.picUrls
+        pictureView.viewModel = model
 
+        // 设置默认picView的背景颜色
+        pictureView.backgroundColor = backgroundColor
+
+// MARK: - 设置被转发微博信息
+        if model?.isRetweeted ?? false {
+            retweetedLab.text = model?.retweetedLabStr
+            pictureView.backgroundColor = jumpBtnAction.backgroundColor
+        }
+        
+    }
 }
 
 

@@ -27,6 +27,8 @@
 
 @property (nonatomic, strong) NSArray<WBStatusPictureModel *> *pic_urls;
 
+@property (nonatomic, strong) WBStatus *retweeted_status;
+
 
 // YYmodel中遇到数组，数组中包含model，需要实现此方法
 + (NSDictionary *)modelContainerPropertyGenericClass;

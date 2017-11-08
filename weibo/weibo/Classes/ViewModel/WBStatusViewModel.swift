@@ -28,6 +28,16 @@ class WBStatusViewModel : CustomStringConvertible{
 
     var pictureSize = CGSize()
     
+    var picUrls: [WBStatusPictureModel]?
+    
+    var retweetedLabStr: String?
+    
+    var rowHeight: CGFloat?
+
+    var isRetweeted:Bool? {
+        return (status?.retweeted_ != nil) ? true : false
+    }
+    
     init(status: WBStatus) {
         self.status = status
         
@@ -54,16 +64,70 @@ class WBStatusViewModel : CustomStringConvertible{
         commentBtnTitle = countString(count: status.comments_count, defaultStr: "评论")
         likeBtnTitle = countString(count: status.attitudes_count, defaultStr: "点赞")
         
+      //获取 pic 包括转发或者自己发的， 被转发微博的text
+        if status.retweeted_ != nil {
+            picUrls = status.retweeted_.pic_urls
+            retweetedLabStr =  "@\(status.retweeted_.user.screen_name!): " + status.retweeted_.text
+        } else {
+            picUrls = status.pic_urls
+            retweetedLabStr = ""
+        }
+        
         //设置pic size
-        pictureSize = calcPictureSize(count: status.pic_urls.count)
+        pictureSize = calcPictureSize(count: picUrls?.count ?? 0)
+        
+        //计算缓存行高
+        calcRowHeight()
     }
     
     var description: String {
         return status?.description ?? ""
     }
-
 }
 
+
+// MARK: - 公开方法
+extension WBStatusViewModel {
+    
+    
+    /// 更新单张视图的size
+    ///
+    /// - Parameter image: 
+    func updateSingleImageSize(image: UIImage?) {
+        
+        if image == nil {
+            return
+        }
+        
+        var size = image!.size
+        
+        //真对单张图片过大情况处理
+        let maxWidth: CGFloat = 300
+        if size.width > maxWidth {
+            size.width = maxWidth
+            size.height  =  image!.size.height / image!.size.width * size.width
+        }
+        
+        //真对单张图片过小处理
+        let minWidth: CGFloat = 30
+        if size.width < minWidth {
+            size.width = minWidth
+            
+            //高度要特殊处理，用户体验不好，高度缩小4倍
+            size.height  =  image!.size.height / image!.size.width * size.width / 4
+        }
+        
+        size.height = size.height + CGFloat(WBPictureViewOutMargin)
+        
+        //更新缓存行高计算,先减去picView高度
+        rowHeight = rowHeight!  - pictureSize.height
+        
+        pictureSize = size
+        
+        //重新更新pic高度
+        rowHeight = rowHeight! + pictureSize.height
+    }
+}
 
 // MARK: - 私有方法
 extension WBStatusViewModel {
@@ -75,12 +139,66 @@ extension WBStatusViewModel {
         if count < 10000 {
             return "\(count)"
         }
-        
         return String(format: "%.2f万", Double(count) / 10000)
     }
-    
-    private func calcPictureSize(count: Int) -> CGSize {
+ 
+    private func calcPictureSize(count: Int?) -> CGSize {
+        if count == 0 || count == nil {
+            return CGSize()
+        }
         
-        return CGSize(width: 100, height: 200)
+        //计算行数
+        let row = (count! - 1) / 3 + 1
+        
+        let height = WBPictureViewItemMargin + WBPictureViewItemWidth * Float(row) + Float(row - 1) * WBPictureViewItemMargin
+        
+        return CGSize(width: CGFloat(WBPictureViewWidth), height: CGFloat(height))
+    }
+    
+    private func calcRowHeight() {
+        //字体都是13
+        //正常微博高度计算
+        //顶部隔离视图（8）+ 间距（11）+ 头像高度（34） + 间距（12）+ 正文（计算）+ picview(计算) +
+        // 间距（12）+ 底部视图（28）
+        
+        
+        //转发微博高度计算
+        //顶部隔离视图（8）+ 间距（11）+ 头像高度（34） + 间距（12）+ 正文（计算）+ 间距（11）+ 转发正文（计算）+ picview(计算) + 间距（12）+ 底部视图（28）
+        
+        let topMargin: CGFloat = 8
+        let marginA: CGFloat = 11
+        let marginB: CGFloat = 12
+        let iconHeight: CGFloat = 34
+        let bottomHeight: CGFloat = 28
+        
+        //先计算正文以上顶部间距
+        var height: CGFloat = topMargin + marginA  + iconHeight + marginB
+        
+        let font = UIFont.systemFont(ofSize: 13)
+        
+        //计算正文高度
+        if let text = status?.text {
+          height = height + (text as NSString).boundingRect(with: CGSize(width: CGFloat(UIScreen.wb_screenWidth()) - CGFloat(2 * marginA), height: 1000),
+                                            options: [.usesLineFragmentOrigin],
+                                            attributes: [NSAttributedStringKey.font: font], context: nil).height
+        }
+        
+        //计算转发微博高度
+        if status?.retweeted_ != nil {
+            height = height + marginA
+            
+            if let text = retweetedLabStr {
+                height = height + (text as NSString).boundingRect(with: CGSize(width: CGFloat(UIScreen.wb_screenWidth()) - CGFloat(2 * marginA), height: 1000),
+                                                                  options: [.usesLineFragmentOrigin],
+                                                                  attributes: [NSAttributedStringKey.font: font], context: nil).height
+            }
+            
+        }
+        
+        //加上picView及后面数值
+        height = height + pictureSize.height + marginB + bottomHeight
+        
+        //使用属性记录
+        rowHeight = height + 3
     }
 }
