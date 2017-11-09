@@ -25,6 +25,8 @@
 		F7001CBF1FAAFA4A007B6FDE /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = F7001CBE1FAAFA49007B6FDE /* UIButton+Custom.m */; };
 		F7001CC21FAB0EE9007B6FDE /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001CC11FAB0EE9007B6FDE /* WBWelcomeView.swift */; };
 		F7001CC41FAB0F01007B6FDE /* WBNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7001CC31FAB0F01007B6FDE /* WBNewFeatureView.swift */; };
+		F70250CB1FB40392008F795B /* WBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70250CA1FB40392008F795B /* WBRefreshView.swift */; };
+		F70250CD1FB403A2008F795B /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70250CC1FB403A2008F795B /* WBRefreshView.xib */; };
 		F704BCC61FB009F5004E2A0F /* WBStatuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCC51FB009F5004E2A0F /* WBStatuCell.swift */; };
 		F704BCC81FB00A28004E2A0F /* WBStatuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F704BCC71FB00A28004E2A0F /* WBStatuCell.xib */; };
 		F704BCCE1FB03C46004E2A0F /* WBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F704BCCD1FB03C46004E2A0F /* WBUser.m */; };
@@ -85,6 +87,8 @@
 		F7001CBE1FAAFA49007B6FDE /* UIButton+Custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
 		F7001CC11FAB0EE9007B6FDE /* WBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		F7001CC31FAB0F01007B6FDE /* WBNewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewFeatureView.swift; sourceTree = "<group>"; };
+		F70250CA1FB40392008F795B /* WBRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshView.swift; sourceTree = "<group>"; };
+		F70250CC1FB403A2008F795B /* WBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
 		F704BCC51FB009F5004E2A0F /* WBStatuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatuCell.swift; sourceTree = "<group>"; };
 		F704BCC71FB00A28004E2A0F /* WBStatuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBStatuCell.xib; sourceTree = "<group>"; };
 		F704BCCC1FB03C46004E2A0F /* WBUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBUser.h; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				F704BCE01FB30315004E2A0F /* WBRefreshControl.swift */,
+				F70250CA1FB40392008F795B /* WBRefreshView.swift */,
+				F70250CC1FB403A2008F795B /* WBRefreshView.xib */,
 			);
 			path = WBRefreshControl;
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 				F71BFD3F1FAB1655003ACD40 /* WBWelcomeView.xib in Resources */,
 				F704BCC81FB00A28004E2A0F /* WBStatuCell.xib in Resources */,
 				F71BFD411FAC02E8003ACD40 /* WBNewFeatureView.xib in Resources */,
+				F70250CD1FB403A2008F795B /* WBRefreshView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +581,7 @@
 				F7001CBC1FA9CF78007B6FDE /* NSObject+CZRuntime.m in Sources */,
 				F7001CC21FAB0EE9007B6FDE /* WBWelcomeView.swift in Sources */,
 				F7001C991FA1AC45007B6FDE /* UIButton+CZAddition.m in Sources */,
+				F70250CB1FB40392008F795B /* WBRefreshView.swift in Sources */,
 				F7001CA31FA322C4007B6FDE /* WBStatusListViewModel.swift in Sources */,
 				F704BCD91FB14DF6004E2A0F /* WBStatusPictureView.swift in Sources */,
 				F704BCD11FB03FC1004E2A0F /* WBStatus.m in Sources */,

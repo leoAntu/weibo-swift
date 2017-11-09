@@ -13,7 +13,7 @@ class WBBaseViewController: UIViewController, UIGestureRecognizerDelegate {
     var tableView: UITableView?
     
     /// 刷新控件
-    var refreshControl: UIRefreshControl?
+    var refreshControl: WBRefreshControl?
     
     /// 上拉刷新标记
     var isPullup = false
@@ -74,7 +74,7 @@ class WBBaseViewController: UIViewController, UIGestureRecognizerDelegate {
         tableView?.delegate = self
         tableView?.dataSource = self
         
-        refreshControl = UIRefreshControl()
+        refreshControl = WBRefreshControl()
         tableView?.addSubview(refreshControl!)
         
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
