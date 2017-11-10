@@ -43,6 +43,23 @@ class WBMainViewController: UITabBarController {
     
     @objc private func composeStatus() {
         print("撰写微博")
+        let v =  WBComposeTypeView.composeTypeView()
+        weak var weakV = v
+        v.show { [weak self] (clsName) in
+
+            //字符串转类别，需要加上命名空间
+            let namespace = Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
+            guard let clsName = clsName,
+                let cls = NSClassFromString(namespace + "." + clsName) as? UIViewController.Type else {
+                return
+            }
+            let vc = cls.init()
+            let nv = UINavigationController(rootViewController: vc)
+            
+            self?.present(nv, animated: true, completion: {
+                weakV?.removeFromSuperview()
+            })
+        }
     }
     
     @objc private func userLogin() {

@@ -14,7 +14,8 @@ class WBComposeViewController: WBBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor.cz_random()
+        setupUI()
         // Do any additional setup after loading the view.
     }
 
@@ -24,14 +25,16 @@ class WBComposeViewController: WBBaseViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+private extension WBComposeViewController {
+    func setupUI() {
+        self.tableView?.removeFromSuperview()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", target: self, action: #selector(rightButtomAction))
+
     }
-    */
-
+    
+    @objc func rightButtomAction() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
