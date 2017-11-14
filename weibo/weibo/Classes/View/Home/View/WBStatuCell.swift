@@ -8,8 +8,15 @@
 
 import UIKit
 
+@objc protocol WBStatuCellDelegate: NSObjectProtocol {
+    @objc optional  func statuCellClickNameString(cell: WBStatuCell, text: String)
+    @objc optional  func statuCellClickUrlString(cell: WBStatuCell, text: String)
+
+}
+
 class WBStatuCell: UITableViewCell {
 
+    weak var delegate: WBStatuCellDelegate?
     //头像
     @IBOutlet weak var aveterIconView: UIImageView!
     //名称
@@ -23,8 +30,10 @@ class WBStatuCell: UITableViewCell {
     //vip认证
     @IBOutlet weak var vipIconView: UIImageView!
     //内容
-    @IBOutlet weak var contentLab: UILabel!
-    
+    @IBOutlet weak var contentLab: FFLabel!
+    //转发文本内容
+    @IBOutlet weak var retweetedLab: FFLabel?
+
     @IBOutlet weak var retweetedBtn: UIButton!
     @IBOutlet weak var commentBtn: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
@@ -36,8 +45,7 @@ class WBStatuCell: UITableViewCell {
         print("被转发微博跳转")
     }
     
-    @IBOutlet weak var retweetedLab: UILabel!
-
+   
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -50,6 +58,10 @@ class WBStatuCell: UITableViewCell {
         //使用栅格化，必须注意指定分辨率，要不然会感觉字体模糊
         self.layer.rasterizationScale = UIScreen.main.scale
         
+        //设置文本代理
+        contentLab.delegate = self
+        retweetedLab?.delegate = self
+        
     }
 
     func displayWithModel(model: WBStatusViewModel?) {
@@ -61,10 +73,11 @@ class WBStatuCell: UITableViewCell {
         aveterIconView.cz_setImage(urlString: model!.status!.user.profile_image_url, placeholderImage: UIImage(named: "avatar_default_big"), isAvatar: true)
        
         nameLab.text = model?.status?.user.screen_name
-        contentLab.text = model?.status?.text
-        
+        resourceLab.text = model?.sourceStr
       
-        
+        //设置正文文本属性
+        contentLab.attributedText = model?.statusAttrText
+
 // MARK: - 设置按钮标题
         retweetedBtn .setTitle(model?.retweetedBtnTitle, for: .normal)
         commentBtn .setTitle(model?.commentBtnTitle, for: .normal)
@@ -79,10 +92,10 @@ class WBStatuCell: UITableViewCell {
 
 // MARK: - 设置被转发微博信息
         if model?.isRetweeted ?? false {
-            retweetedLab.text = model?.retweetedLabStr
+            retweetedLab?.attributedText = model?.retweetedAttrText
             pictureView.backgroundColor = jumpBtnAction.backgroundColor
         }
-        
+   
     }
 }
 
@@ -102,5 +115,19 @@ extension WBStatuCell {
     @IBAction func likeBtnAction(_ sender: UIButton) {
         print(sender)
         
+    }
+}
+
+
+// MARK: - FFLabel 代理
+extension WBStatuCell: FFLabelDelegate {
+    func labelDidSelectedLinkText(label: FFLabel, text: String) {
+        
+        if text.hasPrefix("@") {
+            delegate?.statuCellClickNameString?(cell: self, text: text)
+        }
+        if text.hasPrefix("http") {
+            delegate?.statuCellClickUrlString?(cell: self, text: text)
+        }
     }
 }

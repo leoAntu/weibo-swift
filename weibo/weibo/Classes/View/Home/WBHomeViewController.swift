@@ -69,6 +69,7 @@ extension WBHomeViewController {
         let identifier = (model.isRetweeted == true) ? retweetedId : cellId
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! WBStatuCell
+        cell.delegate = self
         cell.displayWithModel(model: model)
         return cell
     }
@@ -95,5 +96,19 @@ extension WBHomeViewController {
     
     @objc private func btnAction(btn: UIButton) {
         btn.isSelected = !btn.isSelected
+    }
+}
+
+extension WBHomeViewController: WBStatuCellDelegate {
+    func statuCellClickUrlString(cell: WBStatuCell, text: String) {
+        print(cell, text)
+        let vc = WBWebViewController()
+//        vc.urlString = "http://www.baidu.com"
+        vc.urlString = text
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func statuCellClickNameString(cell: WBStatuCell, text: String) {
+        print(cell, text)
     }
 }

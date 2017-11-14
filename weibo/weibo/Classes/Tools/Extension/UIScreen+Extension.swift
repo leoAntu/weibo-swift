@@ -17,7 +17,7 @@ extension UIScreen {
     }
     
    class func wb_screenHeight() -> Float {
-        return Float(UIScreen.main.bounds.size.width);
+        return Float(UIScreen.main.bounds.size.height);
     }
     
     var screenWidth: Float {

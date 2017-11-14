@@ -29,6 +29,11 @@
 
 @property (nonatomic, strong) WBStatus *retweeted_status;
 
+//创建时间
+@property (nonatomic, copy) NSString * create_at;
+//微博来源
+@property (nonatomic, copy) NSString * source;
+
 
 // YYmodel中遇到数组，数组中包含model，需要实现此方法
 + (NSDictionary *)modelContainerPropertyGenericClass;

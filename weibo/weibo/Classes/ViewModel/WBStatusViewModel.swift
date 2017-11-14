@@ -33,6 +33,14 @@ class WBStatusViewModel : CustomStringConvertible{
     var retweetedLabStr: String?
     
     var rowHeight: CGFloat?
+    
+    var sourceStr: String?
+    
+    var sourceLinkStr: String?
+    //正文富文本
+    var statusAttrText: NSAttributedString?
+    //转发文字
+    var retweetedAttrText: NSAttributedString?
 
     var isRetweeted:Bool? {
         return (status?.retweeted_ != nil) ? true : false
@@ -75,6 +83,15 @@ class WBStatusViewModel : CustomStringConvertible{
         
         //设置pic size
         pictureSize = calcPictureSize(count: picUrls?.count ?? 0)
+        
+        //获取微博来源
+        let result = status.source.cz_href()
+        sourceLinkStr = result?.link
+        sourceStr = result?.text
+        
+        //属性文本
+        retweetedAttrText = CZEmoticonManager.shared.emoticonString(string: retweetedLabStr ?? "", font: UIFont.systemFont(ofSize: 13))
+        statusAttrText = CZEmoticonManager.shared.emoticonString(string: status.text, font: UIFont.systemFont(ofSize: 13))
         
         //计算缓存行高
         calcRowHeight()
@@ -174,23 +191,23 @@ extension WBStatusViewModel {
         //先计算正文以上顶部间距
         var height: CGFloat = topMargin + marginA  + iconHeight + marginB
         
-        let font = UIFont.systemFont(ofSize: 13)
+//        let font = UIFont.systemFont(ofSize: 13)
+        
+        let size: CGSize = CGSize(width: CGFloat(UIScreen.wb_screenWidth()) - CGFloat(2 * marginA), height: 1000)
         
         //计算正文高度
-        if let text = status?.text {
-          height = height + (text as NSString).boundingRect(with: CGSize(width: CGFloat(UIScreen.wb_screenWidth()) - CGFloat(2 * marginA), height: 1000),
-                                            options: [.usesLineFragmentOrigin],
-                                            attributes: [NSAttributedStringKey.font: font], context: nil).height
+        if let text = statusAttrText {
+            height = height + text.boundingRect(with: size, options: [.usesLineFragmentOrigin], context: nil).height
+
         }
         
         //计算转发微博高度
         if status?.retweeted_ != nil {
             height = height + marginA
             
-            if let text = retweetedLabStr {
-                height = height + (text as NSString).boundingRect(with: CGSize(width: CGFloat(UIScreen.wb_screenWidth()) - CGFloat(2 * marginA), height: 1000),
-                                                                  options: [.usesLineFragmentOrigin],
-                                                                  attributes: [NSAttributedStringKey.font: font], context: nil).height
+            if let text = retweetedAttrText {
+                height = height + text.boundingRect(with: size, options: [.usesLineFragmentOrigin], context: nil).height
+
             }
             
         }
