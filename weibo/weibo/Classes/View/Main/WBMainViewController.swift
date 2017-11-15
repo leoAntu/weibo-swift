@@ -13,6 +13,7 @@ class WBMainViewController: UITabBarController {
 
     private var timer: Timer?
     private  var composeButton: UIButton? = UIButton()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,7 +56,6 @@ class WBMainViewController: UITabBarController {
             }
             let vc = cls.init()
             let nv = UINavigationController(rootViewController: vc)
-            
             self?.present(nv, animated: true, completion: {
                 weakV?.removeFromSuperview()
             })
@@ -64,9 +64,22 @@ class WBMainViewController: UITabBarController {
     
     @objc private func userLogin() {
         print("执行登录")
-        
+    
         let nav = WBNavgationController(rootViewController: WBOAuthViewController())
-        present(nav, animated:true, completion: nil)
+        let vc = getPresentedViewController()
+        vc.present(nav, animated: true, completion: nil)
+//        present (nav, animated:true, completion: nil)
+    }
+    
+    func getPresentedViewController() -> UIViewController {
+        guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else {
+            return UIViewController()
+        }
+        var  topVC = rootVC
+        if ((topVC.presentedViewController) != nil) {
+            topVC = topVC.presentedViewController!
+        }
+        return topVC
     }
 
 }

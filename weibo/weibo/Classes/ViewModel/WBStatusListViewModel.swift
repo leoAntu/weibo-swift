@@ -52,7 +52,6 @@ class WBStatusListViewModel: NSObject {
             }
             
             //先缓存，在回掉
-//            completion(isSuccess)
             weakSelf?.cacheSingleImg(arr: arr, finished: completion)
 
         }

@@ -20,9 +20,6 @@ let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
 let WBUserLoginSuccessedNotification = "WBUserLoginSuccessedNotification"
 
 
-
-
-
 //定义上边距
 let WBPictureViewOutMargin = Float(11)
 

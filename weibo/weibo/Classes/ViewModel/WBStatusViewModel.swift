@@ -209,7 +209,6 @@ extension WBStatusViewModel {
                 height = height + text.boundingRect(with: size, options: [.usesLineFragmentOrigin], context: nil).height
 
             }
-            
         }
         
         //加上picView及后面数值

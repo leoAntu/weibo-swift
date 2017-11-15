@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WBComposeViewController" customModule="weibo" customModuleProvider="target">
+            <connections>
+                <outlet property="textView" destination="I67-gB-4v8" id="6O2-wj-Swk"/>
+                <outlet property="titleLab" destination="0US-qe-8iW" id="MIk-2q-Y2y"/>
+                <outlet property="toolBar" destination="rzk-ey-cE3" id="YoB-QW-cAs"/>
+                <outlet property="toolBarBottomConstraint" destination="oNy-v8-wid" id="MzP-Vp-nvH"/>
+                <outlet property="view" destination="P7Q-Kc-UxS" id="iQO-Z4-J5b"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="P7Q-Kc-UxS">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I67-gB-4v8" customClass="WBComposeTextView" customModule="weibo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzk-ey-cE3">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <color key="backgroundColor" red="0.32608264593908631" green="0.32608264593908631" blue="0.32608264593908631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="MrK-NN-vAo"/>
+                    </constraints>
+                    <items/>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="I67-gB-4v8" firstAttribute="top" secondItem="P7Q-Kc-UxS" secondAttribute="top" id="6Sl-qP-suN"/>
+                <constraint firstItem="P2v-Nt-uFX" firstAttribute="trailing" secondItem="I67-gB-4v8" secondAttribute="trailing" id="POM-SF-03H"/>
+                <constraint firstItem="I67-gB-4v8" firstAttribute="leading" secondItem="P2v-Nt-uFX" secondAttribute="leading" id="SEN-pA-mEb"/>
+                <constraint firstItem="rzk-ey-cE3" firstAttribute="leading" secondItem="P2v-Nt-uFX" secondAttribute="leading" id="SXB-1R-dt7"/>
+                <constraint firstItem="rzk-ey-cE3" firstAttribute="top" secondItem="I67-gB-4v8" secondAttribute="bottom" id="gyL-cN-ZGO"/>
+                <constraint firstItem="rzk-ey-cE3" firstAttribute="trailing" secondItem="P2v-Nt-uFX" secondAttribute="trailing" id="h6K-V5-Odb"/>
+                <constraint firstAttribute="bottom" secondItem="rzk-ey-cE3" secondAttribute="bottom" id="oNy-v8-wid"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="P2v-Nt-uFX"/>
+            <point key="canvasLocation" x="41" y="-37"/>
+        </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0US-qe-8iW">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="43"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <attributedString key="attributedText">
+                <fragment content="发微博 ">
+                    <attributes>
+                        <font key="NSFont" size="15" name=".PingFangSC-Regular"/>
+                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                    </attributes>
+                </fragment>
+                <fragment content="天涯刀哥-来玩儿">
+                    <attributes>
+                        <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
+                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                    </attributes>
+                </fragment>
+            </attributedString>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="-295" y="-241"/>
+        </label>
+    </objects>
+</document>

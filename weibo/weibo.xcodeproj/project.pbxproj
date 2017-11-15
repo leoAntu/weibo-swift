@@ -45,6 +45,8 @@
 		F71BFD3F1FAB1655003ACD40 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71BFD3E1FAB1655003ACD40 /* WBWelcomeView.xib */; };
 		F71BFD411FAC02E8003ACD40 /* WBNewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71BFD401FAC02E8003ACD40 /* WBNewFeatureView.xib */; };
 		F71BFD431FAC1471003ACD40 /* WBNewFeature2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71BFD421FAC1471003ACD40 /* WBNewFeature2.swift */; };
+		F74C0EC91FBAC370003FF483 /* WBComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74C0EC81FBAC370003FF483 /* WBComposeViewController.xib */; };
+		F74C0ECC1FBAE363003FF483 /* WBComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C0ECB1FBAE363003FF483 /* WBComposeTextView.swift */; };
 		F78898C41F973290006CB400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78898C31F973290006CB400 /* AppDelegate.swift */; };
 		F78898CB1F973290006CB400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78898CA1F973290006CB400 /* Assets.xcassets */; };
 		F78898D61F9733CB006CB400 /* WBMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78898D51F9733CB006CB400 /* WBMainViewController.swift */; };
@@ -128,6 +130,8 @@
 		F71BFD3E1FAB1655003ACD40 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		F71BFD401FAC02E8003ACD40 /* WBNewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewFeatureView.xib; sourceTree = "<group>"; };
 		F71BFD421FAC1471003ACD40 /* WBNewFeature2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNewFeature2.swift; sourceTree = "<group>"; };
+		F74C0EC81FBAC370003FF483 /* WBComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeViewController.xib; sourceTree = "<group>"; };
+		F74C0ECB1FBAE363003FF483 /* WBComposeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeTextView.swift; sourceTree = "<group>"; };
 		F78898C01F973290006CB400 /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78898C31F973290006CB400 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F78898CA1F973290006CB400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -284,6 +288,14 @@
 			path = WBRefreshControl;
 			sourceTree = "<group>";
 		};
+		F74C0ECA1FBAE348003FF483 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F74C0ECB1FBAE363003FF483 /* WBComposeTextView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F78898B71F973290006CB400 = {
 			isa = PBXGroup;
 			children = (
@@ -398,8 +410,10 @@
 		F78898E21F9735A7006CB400 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				F74C0ECA1FBAE348003FF483 /* View */,
 				F70250CE1FB44718008F795B /* ComposeType */,
 				F78899101F9745D6006CB400 /* WBComposeViewController.swift */,
+				F74C0EC81FBAC370003FF483 /* WBComposeViewController.xib */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -567,6 +581,7 @@
 				F70250D21FB448CF008F795B /* WBComposeTypeView.xib in Resources */,
 				F79AA8E41FB9871D0046E63C /* CZEmoticonInputView.xib in Resources */,
 				F704BCDE1FB1B032004E2A0F /* WBStatuRetweetedCell.xib in Resources */,
+				F74C0EC91FBAC370003FF483 /* WBComposeViewController.xib in Resources */,
 				F70250D61FB453CE008F795B /* WBComposeTypeBtn.xib in Resources */,
 				F71BFD3F1FAB1655003ACD40 /* WBWelcomeView.xib in Resources */,
 				F704BCC81FB00A28004E2A0F /* WBStatuCell.xib in Resources */,
@@ -667,6 +682,7 @@
 				F79306801F998DFF007007C5 /* UIScreen+Extension.swift in Sources */,
 				F704BCD71FB0555A004E2A0F /* UIImageView+WebImage.swift in Sources */,
 				F78899111F9745D6006CB400 /* WBComposeViewController.swift in Sources */,
+				F74C0ECC1FBAE363003FF483 /* WBComposeTextView.swift in Sources */,
 				F79AA8C01FB9390B0046E63C /* String+Extensions.swift in Sources */,
 				F71BFD431FAC1471003ACD40 /* WBNewFeature2.swift in Sources */,
 				F7001CA51FA80EED007B6FDE /* WBCommon.swift in Sources */,
