@@ -21,16 +21,18 @@ class CZEmoticon: NSObject {
     /// emoji 的十六进制编码
     var code: String? {
         didSet {
-            
+            //unicode 的编码，展现使用 UTF8 1-4个字节表示一个字符
             guard let code = code else {
                 return
             }
-            
+            //实例化字符扫描
             let scanner = Scanner(string: code)
             
+            //从code 中扫描出十六进制的数值
             var result: UInt32 = 0
             scanner.scanHexInt32(&result)
             
+            //使用UInt32 的数值，生成一个UTF8的字符
             emoji = String(Character(UnicodeScalar(result)!))
         }
     }
@@ -81,7 +83,7 @@ class CZEmoticon: NSObject {
         
         // 3. 返回图片属性文本
         let attrStrM = NSMutableAttributedString(attributedString: NSAttributedString(attachment: attachment))
-        
+        //所有排版的文字系统中，几乎都有一个共同的特点，插入的字符的显示，跟随前一个字符的属性，但是本身没有属性 所以imageText 要设置font
         // 设置字体属性
         attrStrM.addAttributes([NSAttributedStringKey.font: font], range: NSRange(location: 0, length: 1))
         
@@ -93,7 +95,8 @@ class CZEmoticon: NSObject {
         type = (dic["type"] as? String) != "0" ? true : false
         chs = dic["chs"] as? String
         png = dic["png"] as? String
-    }
+        code = dic["code"] as? String
+     }
     
     override var description: String {
         return yy_modelDescription()

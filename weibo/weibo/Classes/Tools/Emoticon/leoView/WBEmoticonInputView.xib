@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="bYp-qv-FQh" customClass="WBEmoticonInputView" customModule="weibo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="253"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bf9-1e-NPo" userLabel="底部工具栏" customClass="WBEmoticonTooBar" customModule="weibo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="209" width="375" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="nYl-0e-fmJ"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aQr-IV-AH8">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bOy-Ug-TCN" customClass="WBEmoticonCollectionLayout" customModule="weibo" customModuleProvider="target">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="bYp-qv-FQh" id="6gI-VL-3YW"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.90838717369999999" blue="0.1827563069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bf9-1e-NPo" firstAttribute="leading" secondItem="bYp-qv-FQh" secondAttribute="leading" id="8k3-A3-rG9"/>
+                <constraint firstItem="VRb-GB-ISa" firstAttribute="trailing" secondItem="bf9-1e-NPo" secondAttribute="trailing" id="O2O-ra-3lV"/>
+                <constraint firstAttribute="bottom" secondItem="bf9-1e-NPo" secondAttribute="bottom" id="gKr-FQ-TEu"/>
+                <constraint firstAttribute="trailing" secondItem="aQr-IV-AH8" secondAttribute="trailing" id="lph-tU-4tf"/>
+                <constraint firstItem="bf9-1e-NPo" firstAttribute="top" secondItem="aQr-IV-AH8" secondAttribute="bottom" id="otp-1z-lcT"/>
+                <constraint firstItem="aQr-IV-AH8" firstAttribute="leading" secondItem="bYp-qv-FQh" secondAttribute="leading" id="wQf-rQ-MkZ"/>
+                <constraint firstItem="aQr-IV-AH8" firstAttribute="top" secondItem="bYp-qv-FQh" secondAttribute="top" id="wrl-Qd-mVs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="VRb-GB-ISa"/>
+            <connections>
+                <outlet property="bottomToolBar" destination="bf9-1e-NPo" id="aJ0-RZ-wCL"/>
+                <outlet property="collectionView" destination="aQr-IV-AH8" id="XT7-wi-qBm"/>
+            </connections>
+            <point key="canvasLocation" x="19" y="-55"/>
+        </view>
+    </objects>
+</document>

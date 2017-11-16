@@ -482,17 +482,5 @@
 		<key>type</key>
 		<string>0</string>
 	</dict>
-	<dict>
-		<key>chs</key>
-		<string>[污]</string>
-		<key>cht</key>
-		<string>[污]</string>
-		<key>gif</key>
-		<string>lxh_pili.gif</string>
-		<key>png</key>
-		<string>lxh_pili.png</string>
-		<key>type</key>
-		<string>0</string>
-	</dict>
 </array>
 </plist>

@@ -24,7 +24,7 @@ class CZEmoticonPackage: NSObject {
             guard let directory = directory,
                 let path = Bundle.main.path(forResource: "HMEmoticon.bundle", ofType: nil),
                 let bundle = Bundle(path: path),
-                let infoPath = bundle.path(forResource: "emoticon.plist", ofType: nil, inDirectory: directory),
+                let infoPath = bundle.path(forResource: "info.plist", ofType: nil, inDirectory: directory),
                 let array = NSArray(contentsOfFile: infoPath) as? [[String: String]]
                 else {
                 return
