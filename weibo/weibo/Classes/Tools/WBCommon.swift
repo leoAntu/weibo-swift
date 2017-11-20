@@ -19,6 +19,11 @@ let WBRedirectUri = "https://www.dingdongqb.com"
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
 let WBUserLoginSuccessedNotification = "WBUserLoginSuccessedNotification"
 
+let WBStatusCellBrowserPhotoNotification = "WBStatusCellBrowserPhotoNotification"
+let WBStatusCellBrowserPhotoSelectedIndexKey = "WBStatusCellBrowserPhotoSelectedIndexKey"
+let WBStatusCellBrowserPhotoUrlsKey = "WBStatusCellBrowserPhotoUrlsKey"
+let WBStatusCellBrowserPhotoImageViewsKey = "WBStatusCellBrowserPhotoImageViewsKey"
+
 
 //定义上边距
 let WBPictureViewOutMargin = Float(11)

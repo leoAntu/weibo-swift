@@ -56,6 +56,8 @@ class WBMainViewController: UITabBarController {
             }
             let vc = cls.init()
             let nv = UINavigationController(rootViewController: vc)
+            //导航控制器强行更新约束,开发中，如果发现不希望的布局约束，应该向前寻找，强制更新约束
+            nv.view.layoutIfNeeded()
             self?.present(nv, animated: true, completion: {
                 weakV?.removeFromSuperview()
             })
@@ -68,7 +70,6 @@ class WBMainViewController: UITabBarController {
         let nav = WBNavgationController(rootViewController: WBOAuthViewController())
         let vc = getPresentedViewController()
         vc.present(nav, animated: true, completion: nil)
-//        present (nav, animated:true, completion: nil)
     }
     
     func getPresentedViewController() -> UIViewController {

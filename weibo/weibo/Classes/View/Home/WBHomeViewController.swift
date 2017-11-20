@@ -22,8 +22,28 @@ class WBHomeViewController: WBBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(photoBrowserNotification), name: NSNotification.Name(rawValue: WBStatusCellBrowserPhotoNotification), object: nil)
     }
     
+    @objc private func photoBrowserNotification(notifi: Notification) {
+        
+        guard let userInfo = notifi.userInfo,
+            let selectedIndex = userInfo[WBStatusCellBrowserPhotoSelectedIndexKey] as? Int,
+            let urls = userInfo[WBStatusCellBrowserPhotoUrlsKey] as? [String],
+            let imageViews = userInfo[WBStatusCellBrowserPhotoImageViewsKey] as? [UIImageView]
+        else {
+            return
+        }
+        
+        let vc = HMPhotoBrowserController.photoBrowser(withSelectedIndex: selectedIndex, urls: urls, parentImageViews: imageViews)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     @objc override func loadData() {
         

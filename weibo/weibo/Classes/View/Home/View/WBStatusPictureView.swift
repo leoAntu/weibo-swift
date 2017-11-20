@@ -55,6 +55,9 @@ class WBStatusPictureView: UIView {
                 //设置图片
                 iv?.cz_setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
                 
+                //判断是否为gif
+                iv?.subviews[0].isHidden = !((url.thumbnail_pic as NSString).pathExtension.lowercased() == "gif")
+                
                 //显示图片
                 iv?.isHidden = false
                 
@@ -71,6 +74,36 @@ class WBStatusPictureView: UIView {
     
     override func awakeFromNib() {
         setupUI()
+    }
+    
+    @objc private func tapImageView(tap: UITapGestureRecognizer) {
+        guard let iv = tap.view,
+            let picUrs = viewModel?.picUrls else {
+            return
+        }
+        
+        var selectedIndex = iv.tag - 1
+        
+        //真对四张图处理
+        if picUrs.count == 4 && selectedIndex > 1 {
+            selectedIndex = selectedIndex - 1
+        }
+        
+        
+        let urls = (picUrs as NSArray).value(forKey: "largePic") as! [String]
+        
+        //处理可见的图像视图
+        var imageViewList = [UIImageView]()
+        
+        for v in subviews as! [UIImageView] {
+            if v.isHidden == false {
+                imageViewList.append(v)
+            }
+        }
+        
+        //发送通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBStatusCellBrowserPhotoNotification), object: self, userInfo: [WBStatusCellBrowserPhotoUrlsKey: urls, WBStatusCellBrowserPhotoSelectedIndexKey: selectedIndex, WBStatusCellBrowserPhotoImageViewsKey: imageViewList])
+        
     }
 }
 
@@ -100,6 +133,31 @@ extension WBStatusPictureView {
             let dy = CGFloat(Float(row) * (WBPictureViewItemWidth + WBPictureViewItemMargin))
             iv.frame = rect.offsetBy(dx: dx, dy: dy)
             addSubview(iv)
+            
+            //打开交互
+            iv.isUserInteractionEnabled = true
+            
+            //添加手势
+            let tap = UITapGestureRecognizer(target: self, action: #selector(tapImageView))
+            
+            iv.addGestureRecognizer(tap)
+            iv.tag = i + 1
+            
+            addGifView(iv: iv)
         }
+    }
+    
+    //添加gif提示图像
+    func addGifView(iv: UIView) {
+        let gifImageView = UIImageView(image: UIImage(named: "timeline_image_gif"))
+        iv.addSubview(gifImageView)
+        
+        gifImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        iv.addConstraint(NSLayoutConstraint(item: gifImageView, attribute: .right, relatedBy: .equal, toItem: iv, attribute: .right, multiplier: 1, constant: 0))
+        iv.addConstraint(NSLayoutConstraint(item: gifImageView, attribute: .bottom, relatedBy: .equal, toItem: iv, attribute: .bottom, multiplier: 1, constant: 0))
+         iv.addConstraint(NSLayoutConstraint(item: gifImageView, attribute: .width, relatedBy: .equal, toItem: iv, attribute: .width, multiplier: 0, constant: 27))
+        iv.addConstraint(NSLayoutConstraint(item: gifImageView, attribute: .height, relatedBy: .equal, toItem: iv, attribute: .height, multiplier: 0, constant: 20))
+
     }
 }

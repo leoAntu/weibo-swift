@@ -14,5 +14,7 @@
 //图片地址
 @property (nonatomic, copy) NSString * thumbnail_pic;
 
+@property (nonatomic, copy) NSString * largePic;
+
 
 @end

@@ -15,5 +15,7 @@
 #import "WBUser.h"
 #import "WBStatus.h"
 #import "WBStatusPictureModel.h"
+#import "NSObject+CZRuntime.h"
+#import "HMPhotoBrowserController.h"
 
 

@@ -10,6 +10,10 @@
 
 @implementation WBStatusPictureModel
 
+- (void)setThumbnail_pic:(NSString *)thumbnail_pic {
+    _largePic = [thumbnail_pic stringByReplacingOccurrencesOfString:@"/thumbnail/" withString:@"/large/"];
+    _thumbnail_pic = [thumbnail_pic stringByReplacingOccurrencesOfString:@"/thumbnail/" withString:@"/wap360/"];
+}
 
 - (NSString *)description {
     return [self yy_modelDescription];

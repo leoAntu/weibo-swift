@@ -119,7 +119,7 @@ extension WBStatusViewModel {
         var size = image!.size
         
         //真对单张图片过大情况处理
-        let maxWidth: CGFloat = 300
+        let maxWidth: CGFloat = 200
         if size.width > maxWidth {
             size.width = maxWidth
             size.height  =  image!.size.height / image!.size.width * size.width
@@ -132,6 +132,10 @@ extension WBStatusViewModel {
             
             //高度要特殊处理，用户体验不好，高度缩小4倍
             size.height  =  image!.size.height / image!.size.width * size.width / 4
+        }
+        
+        if size.height > 200 {
+            size.height = 200
         }
         
         size.height = size.height + CGFloat(WBPictureViewOutMargin)
@@ -167,7 +171,7 @@ extension WBStatusViewModel {
         //计算行数
         let row = (count! - 1) / 3 + 1
         
-        let height = WBPictureViewItemMargin + WBPictureViewItemWidth * Float(row) + Float(row - 1) * WBPictureViewItemMargin
+        let height = WBPictureViewOutMargin + WBPictureViewItemWidth * Float(row) + Float(row - 1) * WBPictureViewItemMargin
         
         return CGSize(width: CGFloat(WBPictureViewWidth), height: CGFloat(height))
     }

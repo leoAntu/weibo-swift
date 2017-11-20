@@ -8,11 +8,28 @@
 
 import UIKit
 
+@objc protocol WBEmoticonTooBarDelegate: NSObjectProtocol {
+    func emoticonToolBarSelectedIndex(btn: UIButton, index: Int)
+}
+
 class WBEmoticonTooBar: UIView {
 
+    var currentSection: Int? {
+        didSet{
+            let btn = viewWithTag(currentSection! + 1) as? UIButton
+            if btn?.isSelected == true {
+                return
+            }
+            clearBtnsSelected()
+            btn?.isSelected = true
+        }
+    }
+    
     override func awakeFromNib() {
         setupUI()
     }
+    
+    weak var delegate: WBEmoticonTooBarDelegate?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -24,6 +41,19 @@ class WBEmoticonTooBar: UIView {
             btn.frame = rect.offsetBy(dx: CGFloat(i) * w, dy: 0)
         }
     }
+    
+    @objc private func clickItemAction(btn: UIButton) {
+        
+        if btn.isSelected == true {
+            return
+        }
+        
+        clearBtnsSelected()
+       
+        btn.isSelected = true
+        delegate?.emoticonToolBarSelectedIndex(btn: btn, index: btn.tag - 1)
+    }
+    
 }
 
 private extension WBEmoticonTooBar {
@@ -31,7 +61,7 @@ private extension WBEmoticonTooBar {
         
         let manager = CZEmoticonManager.shared
         
-        for p in manager.packages {
+        for (i, p) in manager.packages.enumerated() {
             let btn = UIButton()
             
             btn.setTitle(p.groupName, for: .normal)
@@ -57,9 +87,18 @@ private extension WBEmoticonTooBar {
             btn.setBackgroundImage(img, for: .normal)
             btn.setBackgroundImage(selectedImg, for: .selected)
             btn.setBackgroundImage(selectedImg, for: .highlighted)
-
+            btn.tag = i + 1
+            btn.addTarget(self, action: #selector(clickItemAction), for: .touchUpInside)
             btn.sizeToFit()
             addSubview(btn)
+        }
+        
+        (subviews[0] as? UIButton)?.isSelected = true
+    }
+    
+    func clearBtnsSelected() {
+        for v in subviews {
+            (v as? UIButton)?.isSelected = false
         }
     }
 }

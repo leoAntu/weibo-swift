@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,16 +34,25 @@
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="bYp-qv-FQh" id="6gI-VL-3YW"/>
+                        <outlet property="delegate" destination="bYp-qv-FQh" id="Xwa-EE-XfF"/>
                     </connections>
                 </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="PUM-vR-9IX">
+                    <rect key="frame" x="187.5" y="169" width="0.0" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="rbZ-55-dzJ"/>
+                    </constraints>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" red="1" green="0.90838717369999999" blue="0.1827563069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="bf9-1e-NPo" firstAttribute="leading" secondItem="bYp-qv-FQh" secondAttribute="leading" id="8k3-A3-rG9"/>
+                <constraint firstItem="bf9-1e-NPo" firstAttribute="top" secondItem="PUM-vR-9IX" secondAttribute="bottom" id="MGT-jS-Num"/>
                 <constraint firstItem="VRb-GB-ISa" firstAttribute="trailing" secondItem="bf9-1e-NPo" secondAttribute="trailing" id="O2O-ra-3lV"/>
                 <constraint firstAttribute="bottom" secondItem="bf9-1e-NPo" secondAttribute="bottom" id="gKr-FQ-TEu"/>
                 <constraint firstAttribute="trailing" secondItem="aQr-IV-AH8" secondAttribute="trailing" id="lph-tU-4tf"/>
                 <constraint firstItem="bf9-1e-NPo" firstAttribute="top" secondItem="aQr-IV-AH8" secondAttribute="bottom" id="otp-1z-lcT"/>
+                <constraint firstItem="PUM-vR-9IX" firstAttribute="centerX" secondItem="bYp-qv-FQh" secondAttribute="centerX" id="rI3-zY-PQU"/>
                 <constraint firstItem="aQr-IV-AH8" firstAttribute="leading" secondItem="bYp-qv-FQh" secondAttribute="leading" id="wQf-rQ-MkZ"/>
                 <constraint firstItem="aQr-IV-AH8" firstAttribute="top" secondItem="bYp-qv-FQh" secondAttribute="top" id="wrl-Qd-mVs"/>
             </constraints>
@@ -52,6 +61,7 @@
             <connections>
                 <outlet property="bottomToolBar" destination="bf9-1e-NPo" id="aJ0-RZ-wCL"/>
                 <outlet property="collectionView" destination="aQr-IV-AH8" id="XT7-wi-qBm"/>
+                <outlet property="pageControl" destination="PUM-vR-9IX" id="fqv-hh-2hr"/>
             </connections>
             <point key="canvasLocation" x="19" y="-55"/>
         </view>

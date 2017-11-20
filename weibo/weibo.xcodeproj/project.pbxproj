@@ -85,6 +85,11 @@
 		F79AA8E71FB9871D0046E63C /* CZEmoticonToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79AA8DC1FB9871C0046E63C /* CZEmoticonToolbar.swift */; };
 		F79AA8EA1FBA88CF0046E63C /* FFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79AA8E91FBA88CF0046E63C /* FFLabel.swift */; };
 		F79AA8EC1FBA98340046E63C /* WBWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79AA8EB1FBA98340046E63C /* WBWebViewController.swift */; };
+		F7F056121FC2C5830052B53F /* HMPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F056081FC2C5830052B53F /* HMPhotoBrowserController.m */; };
+		F7F056131FC2C5830052B53F /* HMPhotoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F056091FC2C5830052B53F /* HMPhotoViewerController.m */; };
+		F7F056141FC2C5830052B53F /* HMPhotoBrowserPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F0560A1FC2C5830052B53F /* HMPhotoBrowserPhotos.m */; };
+		F7F056151FC2C5830052B53F /* HMPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F0560B1FC2C5830052B53F /* HMPhotoProgressView.m */; };
+		F7F056161FC2C5830052B53F /* HMPhotoBrowserAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F056101FC2C5830052B53F /* HMPhotoBrowserAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +189,16 @@
 		F79AA8DC1FB9871C0046E63C /* CZEmoticonToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZEmoticonToolbar.swift; sourceTree = "<group>"; };
 		F79AA8E91FBA88CF0046E63C /* FFLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFLabel.swift; sourceTree = "<group>"; };
 		F79AA8EB1FBA98340046E63C /* WBWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBWebViewController.swift; sourceTree = "<group>"; };
+		F7F056081FC2C5830052B53F /* HMPhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoBrowserController.m; sourceTree = "<group>"; };
+		F7F056091FC2C5830052B53F /* HMPhotoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoViewerController.m; sourceTree = "<group>"; };
+		F7F0560A1FC2C5830052B53F /* HMPhotoBrowserPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoBrowserPhotos.m; sourceTree = "<group>"; };
+		F7F0560B1FC2C5830052B53F /* HMPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoProgressView.m; sourceTree = "<group>"; };
+		F7F0560C1FC2C5830052B53F /* HMPhotoBrowserAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoBrowserAnimator.h; sourceTree = "<group>"; };
+		F7F0560D1FC2C5830052B53F /* HMPhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoBrowserController.h; sourceTree = "<group>"; };
+		F7F0560E1FC2C5830052B53F /* HMPhotoViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoViewerController.h; sourceTree = "<group>"; };
+		F7F0560F1FC2C5830052B53F /* HMPhotoBrowserPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoBrowserPhotos.h; sourceTree = "<group>"; };
+		F7F056101FC2C5830052B53F /* HMPhotoBrowserAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoBrowserAnimator.m; sourceTree = "<group>"; };
+		F7F056111FC2C5830052B53F /* HMPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoProgressView.h; sourceTree = "<group>"; };
 		FF1694010E48564A2E8E7ED5 /* Pods-weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -405,6 +420,7 @@
 		F78898DD1F973553006CB400 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F7F056071FC2C5830052B53F /* PhotoBrowser */,
 				F71460731FBEB881000BC2FA /* SQLite */,
 				F79AA8E81FBA88CF0046E63C /* FFLabel */,
 				F79AA8CF1FB9871C0046E63C /* Emoticon */,
@@ -556,6 +572,23 @@
 				F79AA8E91FBA88CF0046E63C /* FFLabel.swift */,
 			);
 			path = FFLabel;
+			sourceTree = "<group>";
+		};
+		F7F056071FC2C5830052B53F /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				F7F0560D1FC2C5830052B53F /* HMPhotoBrowserController.h */,
+				F7F056081FC2C5830052B53F /* HMPhotoBrowserController.m */,
+				F7F0560C1FC2C5830052B53F /* HMPhotoBrowserAnimator.h */,
+				F7F056101FC2C5830052B53F /* HMPhotoBrowserAnimator.m */,
+				F7F0560E1FC2C5830052B53F /* HMPhotoViewerController.h */,
+				F7F056091FC2C5830052B53F /* HMPhotoViewerController.m */,
+				F7F0560F1FC2C5830052B53F /* HMPhotoBrowserPhotos.h */,
+				F7F0560A1FC2C5830052B53F /* HMPhotoBrowserPhotos.m */,
+				F7F056111FC2C5830052B53F /* HMPhotoProgressView.h */,
+				F7F0560B1FC2C5830052B53F /* HMPhotoProgressView.m */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -737,11 +770,14 @@
 				F74C0ECC1FBAE363003FF483 /* WBComposeTextView.swift in Sources */,
 				F79AA8C01FB9390B0046E63C /* String+Extensions.swift in Sources */,
 				F71BFD431FAC1471003ACD40 /* WBNewFeature2.swift in Sources */,
+				F7F056121FC2C5830052B53F /* HMPhotoBrowserController.m in Sources */,
 				F714607D1FBED9BE000BC2FA /* WBEmoticonTipView.swift in Sources */,
 				F7001CA51FA80EED007B6FDE /* WBCommon.swift in Sources */,
 				F79AA8DF1FB9871D0046E63C /* CZEmoticon.swift in Sources */,
+				F7F056131FC2C5830052B53F /* HMPhotoViewerController.m in Sources */,
 				F7001C9F1FA30800007B6FDE /* WBNetworkManager+Extension.swift in Sources */,
 				F704BCD51FB054F0004E2A0F /* UIImage+Extensions.swift in Sources */,
+				F7F056151FC2C5830052B53F /* HMPhotoProgressView.m in Sources */,
 				F79AA8E31FB9871D0046E63C /* CZEmoticonInputView.swift in Sources */,
 				F7001C9D1FA2D446007B6FDE /* WBNetworkManager.swift in Sources */,
 				F79AA8E21FB9871D0046E63C /* CZEmoticonCell.swift in Sources */,
@@ -759,6 +795,7 @@
 				F79AA8EC1FBA98340046E63C /* WBWebViewController.swift in Sources */,
 				F78898C41F973290006CB400 /* AppDelegate.swift in Sources */,
 				F71460791FBEB8ED000BC2FA /* WBStatusDAL.swift in Sources */,
+				F7F056161FC2C5830052B53F /* HMPhotoBrowserAnimator.m in Sources */,
 				F79AA8E11FB9871D0046E63C /* CZEmoticonPackage.swift in Sources */,
 				F79AA8E61FB9871D0046E63C /* CZEmoticonTipView.swift in Sources */,
 				F7001CBC1FA9CF78007B6FDE /* NSObject+CZRuntime.m in Sources */,
@@ -772,6 +809,7 @@
 				F788990B1F9745B1006CB400 /* WBMessageViewController.swift in Sources */,
 				F74C0ECF1FBC1034003FF483 /* WBEmoticonInputView.swift in Sources */,
 				F7001CBF1FAAFA4A007B6FDE /* UIButton+Custom.m in Sources */,
+				F7F056141FC2C5830052B53F /* HMPhotoBrowserPhotos.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -89,6 +89,8 @@ class WBEmoticonCollectionCell: UICollectionViewCell {
         let location = gesture.location(in: self)
         
         guard let btn = buttonWithLocation(location: location) else {
+            //防止按删除按钮的时候，tipview还在显示
+            tipView.isHidden = true
             return
         }
         
@@ -101,6 +103,17 @@ class WBEmoticonCollectionCell: UICollectionViewCell {
             let center = self.convert(btn.center, to: window)
             
             tipView.center = center
+            
+            //设置图片
+            if btn.tag < (emoticons?.count)! {
+                tipView.emoticon = emoticons?[btn.tag]
+            }
+            
+        case .ended:
+            tipView.isHidden = true
+            selectedEmodiconBtnAction(btn: btn)
+        case .cancelled, .failed:
+            tipView.isHidden = true
         default:
             return
         }
@@ -165,7 +178,7 @@ private extension WBEmoticonCollectionCell {
     
         //添加长按手势
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGes))
-//        longPress.minimumPressDuration = 0.1
+        longPress.minimumPressDuration = 0.2
         addGestureRecognizer(longPress)
    }
 }
