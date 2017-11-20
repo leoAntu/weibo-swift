@@ -21,7 +21,12 @@ class WBStatusListViewModel: NSObject {
         let max_id = pullup ? (dataList.last?.status?.id ?? 0) : 0
         
         weak var weakSelf = self
-        WBNetworkManager.shared.statusList(since_id: Int64(since_id), max_id: Int64(max_id)) { (list, isSuccess) in
+        
+        WBStatusDAL.loadStatus(since_id: Int64(since_id), max_id: Int64(max_id)) { (list, isSuccess) in
+            
+//        }
+//        
+//        WBNetworkManager.shared.statusList(since_id: Int64(since_id), max_id: Int64(max_id)) { (list, isSuccess) in
             
             guard list != nil else {
                 completion(isSuccess)
@@ -56,7 +61,7 @@ class WBStatusListViewModel: NSObject {
 
         }
     }
-    
+
     
     /// 缓存weibo单张图片方法
     ///

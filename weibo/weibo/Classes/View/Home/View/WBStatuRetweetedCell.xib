@@ -148,7 +148,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D95-Nb-Gyc" userLabel="被转发微博正文" customClass="FFLabel" customModule="weibo" customModuleProvider="target">
-                        <rect key="frame" x="11" y="99" width="0.0" height="0.0"/>
+                        <rect key="frame" x="11" y="99" width="356" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -171,7 +171,7 @@
                     <constraint firstItem="etr-I0-4AC" firstAttribute="top" secondItem="5Ab-iq-pn7" secondAttribute="bottom" constant="12" id="9ly-RI-4dy"/>
                     <constraint firstAttribute="trailing" secondItem="Ani-Fh-McA" secondAttribute="trailing" id="A7m-CA-qio"/>
                     <constraint firstItem="uG3-KF-94Q" firstAttribute="leading" secondItem="ojG-hd-70k" secondAttribute="trailing" constant="3" id="Aa4-Zy-5g1"/>
-                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="D95-Nb-Gyc" secondAttribute="trailing" constant="12" id="Axw-XJ-mpP"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="D95-Nb-Gyc" secondAttribute="trailing" id="Axw-XJ-mpP"/>
                     <constraint firstItem="etr-I0-4AC" firstAttribute="leading" secondItem="h9Y-iM-oi1" secondAttribute="leading" id="HWc-hC-3Ej"/>
                     <constraint firstItem="xm1-a8-Kxf" firstAttribute="centerY" secondItem="l8k-fb-d5N" secondAttribute="bottom" id="Iop-og-HLr"/>
                     <constraint firstItem="etr-I0-4AC" firstAttribute="top" secondItem="Ani-Fh-McA" secondAttribute="bottom" id="Km9-nT-hcP"/>
@@ -195,7 +195,7 @@
                     <constraint firstItem="D95-Nb-Gyc" firstAttribute="leading" secondItem="5gc-KT-ZSf" secondAttribute="leading" id="o4s-pC-UkV"/>
                     <constraint firstItem="ycD-nm-XQN" firstAttribute="top" secondItem="ojG-hd-70k" secondAttribute="bottom" constant="5" id="vzu-bc-rOa"/>
                     <constraint firstItem="uG3-KF-94Q" firstAttribute="centerY" secondItem="ojG-hd-70k" secondAttribute="centerY" id="wYc-b7-r9p"/>
-                    <constraint firstAttribute="trailing" secondItem="5Ab-iq-pn7" secondAttribute="trailing" constant="11" id="war-jo-F6z"/>
+                    <constraint firstItem="5gc-KT-ZSf" firstAttribute="trailing" secondItem="5Ab-iq-pn7" secondAttribute="trailing" id="war-jo-F6z"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

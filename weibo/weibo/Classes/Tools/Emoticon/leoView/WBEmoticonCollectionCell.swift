@@ -18,6 +18,8 @@ class WBEmoticonCollectionCell: UICollectionViewCell {
 
     weak var delegate: WBEmoticonCollectionCellDelegate?
     
+    lazy var tipView = WBEmoticonTipView()
+    
     var emoticons: [CZEmoticon]? {
         didSet{
             //隐藏所有的按钮
@@ -50,6 +52,20 @@ class WBEmoticonCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //当视图从界面上删除，同样会调用此方法，newwindow = nil
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+        
+        guard let window = newWindow else {
+            return
+        }
+        
+        //将提示框 添加到window上，才能不被裁剪，如果在view上，超出部分会被裁剪
+        window.addSubview(tipView)
+        tipView.isHidden = true
+        
+    }
+    
     //选中按钮事件
     @objc private func selectedEmodiconBtnAction(btn: UIButton) {
         //取tag 0 - 19  20对应的是删除按钮
@@ -65,6 +81,44 @@ class WBEmoticonCollectionCell: UICollectionViewCell {
         //如果em为nil，就是删除按钮
         delegate?.emoticonCellDidSelectedEmoticon?(em: em)
         
+    }
+    
+    @objc private func longPressGes(gesture: UILongPressGestureRecognizer) {
+        
+        //获取触摸位置
+        let location = gesture.location(in: self)
+        
+        guard let btn = buttonWithLocation(location: location) else {
+            return
+        }
+        
+        //处理手势状态
+        switch gesture.state {
+        case .began, .changed:
+            tipView.isHidden = false
+            
+            //坐标系的转换。tip的参照是window,直接转换到 window
+            let center = self.convert(btn.center, to: window)
+            
+            tipView.center = center
+        default:
+            return
+        }
+        
+        print(btn)
+    }
+    
+    private func buttonWithLocation(location: CGPoint) -> UIButton? {
+        
+        //遍历contentview 的子视图，如果可见，同时在location 确认是btn
+        
+        for  btn in contentView.subviews {
+            if btn.frame.contains(location) && !btn.isHidden  && (btn != contentView.subviews.last){
+                return btn as? UIButton
+            }
+        }
+        
+        return nil
     }
 }
 
@@ -108,5 +162,10 @@ private extension WBEmoticonCollectionCell {
         let imgHL = UIImage(named: "compose_emotion_delete_highlighted", in: CZEmoticonManager.shared.bundle, compatibleWith: nil)
         removeBtn.setImage(img, for: .normal)
         removeBtn.setImage(imgHL, for: .highlighted)
+    
+        //添加长按手势
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGes))
+//        longPress.minimumPressDuration = 0.1
+        addGestureRecognizer(longPress)
    }
 }

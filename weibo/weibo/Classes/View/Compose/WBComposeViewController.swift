@@ -18,30 +18,11 @@ class WBComposeViewController: WBBaseViewController {
     @IBOutlet weak var toolBarBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var toolBar: UIToolbar!
     
-    //纯字符串，传给后台使用
-    var textViewString: String? {
-        
-        //获取属性文本
-        guard let attrStr = textView.attributedText else {
-            return ""
-        }
-        
-        //定义变量接受字符串
-        var resultStr = String()
-        //遍历属性文本
-        attrStr.enumerateAttributes(in:NSRange(location: 0, length: attrStr.length), options: [], using: { (dict, range, _) in
-            
-            if let attachment = dict[NSAttributedStringKey.attachment] as? CZEmoticonAttachment  {
-                resultStr = resultStr + (attachment.chs ?? "")
-            } else {
-                resultStr = resultStr + (attrStr.string as NSString).substring(with: range)
-            }
-            
-        })
-        
-        return resultStr
+    //宽度随便设置
+    lazy var keyboardView = WBEmoticonInputView.inputView { [weak self] (em) in
+        self?.textView.insertEmoticon(em: em)
     }
-    
+
     lazy var sendBtn: UIButton = {
         let btn = UIButton(type: .custom)
         btn.setTitle("发送", for: .normal)
@@ -161,18 +142,12 @@ private extension WBComposeViewController {
             return
         }
         
-        //宽度随便设置
-        let keyboardView = WBEmoticonInputView.inputView { [weak self] (em) in
-            self?.insertEmoticon(em: em)
-        }
-        
         //设置键盘视图
         textView.inputView = keyboardView
         //刷新键盘视图
         textView.reloadInputViews()
         //调起键盘
         textView.becomeFirstResponder()
-        
     }
     
     @objc func rightButtomAction() {
@@ -183,7 +158,7 @@ private extension WBComposeViewController {
     @objc func sendBtnAction() {
         textView.resignFirstResponder()
 
-        guard let text = textView.text else {
+        guard let text = textView.textViewString else {
             return
         }
         
@@ -210,7 +185,6 @@ private extension WBComposeViewController {
         UIView.animate(withDuration: TimeInterval(duration)) {
             self.view.layoutIfNeeded()
         }
-        print(offset)
     }
 }
 
@@ -230,45 +204,3 @@ extension WBComposeViewController:  UITextViewDelegate {
 }
 
 
-// MARK: - 向文本视图中插入表情符号/图文混排
-private extension WBComposeViewController {
-    func insertEmoticon(em: CZEmoticon?) {
-
-        guard let em = em else {
-            //删除文本
-            textView.deleteBackward()
-            return
-        }
-        
-        //2 emoji 字符串
-        if let emoji = em.emoji, let textRange = textView.selectedTextRange {
-            textView.replace(textRange, withText: emoji)
-            return
-        }
-        
-        //解决bug, 当text没有文字的时候插入图片，不会隐藏placeholder
-        if textView.hasText == false {
-            textView.placeholderLab.isHidden = true
-        }
-        
-        //所有排版的文字系统中，几乎都有一个共同的特点，插入的字符的显示，跟随前一个字符的属性，但是本身没有属性 所以imageText 要设置font属性
-        //3 获取图片属性文本
-        let imageText = em.imageText(font: textView.font!)
-        
-        //获取当前属性文本
-        let attrStrM = NSMutableAttributedString(attributedString: textView.attributedText)
-        
-        //将图像属性文本插入到当前光标位置
-        attrStrM.replaceCharacters(in: textView.selectedRange, with: imageText)
-        
-        //记录变化之前的光标位置
-        let range = textView.selectedRange
-        
-        //重新设置属性文本，光标位置发生变化
-        textView.attributedText = attrStrM
-        
-        //恢复光标位置
-        textView.selectedRange = NSRange(location: range.location + 1, length: 0)
-                
-    }
-}

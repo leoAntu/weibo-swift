@@ -42,6 +42,11 @@
 		F704BCDC1FB15444004E2A0F /* WBStatusPictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F704BCDB1FB15444004E2A0F /* WBStatusPictureModel.m */; };
 		F704BCDE1FB1B032004E2A0F /* WBStatuRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F704BCDD1FB1B032004E2A0F /* WBStatuRetweetedCell.xib */; };
 		F704BCE11FB30315004E2A0F /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704BCE01FB30315004E2A0F /* WBRefreshControl.swift */; };
+		F71460761FBEB881000BC2FA /* status.sql in Resources */ = {isa = PBXBuildFile; fileRef = F71460741FBEB881000BC2FA /* status.sql */; };
+		F71460771FBEB881000BC2FA /* WBSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71460751FBEB881000BC2FA /* WBSQLiteManager.swift */; };
+		F71460791FBEB8ED000BC2FA /* WBStatusDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71460781FBEB8ED000BC2FA /* WBStatusDAL.swift */; };
+		F714607B1FBEC9CA000BC2FA /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714607A1FBEC9CA000BC2FA /* Date+Extensions.swift */; };
+		F714607D1FBED9BE000BC2FA /* WBEmoticonTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714607C1FBED9BE000BC2FA /* WBEmoticonTipView.swift */; };
 		F71569AD1FBC3AA3005C7B3F /* WBEmoticonCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71569AC1FBC3AA3005C7B3F /* WBEmoticonCollectionCell.swift */; };
 		F71569B11FBC3D75005C7B3F /* WBEmoticonCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71569B01FBC3D75005C7B3F /* WBEmoticonCollectionLayout.swift */; };
 		F71BFD3F1FAB1655003ACD40 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71BFD3E1FAB1655003ACD40 /* WBWelcomeView.xib */; };
@@ -132,6 +137,11 @@
 		F704BCDB1FB15444004E2A0F /* WBStatusPictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBStatusPictureModel.m; sourceTree = "<group>"; };
 		F704BCDD1FB1B032004E2A0F /* WBStatuRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatuRetweetedCell.xib; sourceTree = "<group>"; };
 		F704BCE01FB30315004E2A0F /* WBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
+		F71460741FBEB881000BC2FA /* status.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.sql; sourceTree = "<group>"; };
+		F71460751FBEB881000BC2FA /* WBSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSQLiteManager.swift; sourceTree = "<group>"; };
+		F71460781FBEB8ED000BC2FA /* WBStatusDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusDAL.swift; sourceTree = "<group>"; };
+		F714607A1FBEC9CA000BC2FA /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		F714607C1FBED9BE000BC2FA /* WBEmoticonTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBEmoticonTipView.swift; sourceTree = "<group>"; };
 		F71569AC1FBC3AA3005C7B3F /* WBEmoticonCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBEmoticonCollectionCell.swift; sourceTree = "<group>"; };
 		F71569B01FBC3D75005C7B3F /* WBEmoticonCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBEmoticonCollectionLayout.swift; sourceTree = "<group>"; };
 		F71BFD3E1FAB1655003ACD40 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
@@ -298,6 +308,15 @@
 			path = WBRefreshControl;
 			sourceTree = "<group>";
 		};
+		F71460731FBEB881000BC2FA /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				F71460741FBEB881000BC2FA /* status.sql */,
+				F71460751FBEB881000BC2FA /* WBSQLiteManager.swift */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
 		F74C0ECA1FBAE348003FF483 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +333,7 @@
 				F74C0ED21FBC12AD003FF483 /* WBEmoticonTooBar.swift */,
 				F71569AC1FBC3AA3005C7B3F /* WBEmoticonCollectionCell.swift */,
 				F71569B01FBC3D75005C7B3F /* WBEmoticonCollectionLayout.swift */,
+				F714607C1FBED9BE000BC2FA /* WBEmoticonTipView.swift */,
 			);
 			path = leoView;
 			sourceTree = "<group>";
@@ -377,6 +397,7 @@
 			children = (
 				F7001CA21FA322C4007B6FDE /* WBStatusListViewModel.swift */,
 				F704BCD21FB0445B004E2A0F /* WBStatusViewModel.swift */,
+				F71460781FBEB8ED000BC2FA /* WBStatusDAL.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -384,6 +405,7 @@
 		F78898DD1F973553006CB400 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F71460731FBEB881000BC2FA /* SQLite */,
 				F79AA8E81FBA88CF0046E63C /* FFLabel */,
 				F79AA8CF1FB9871C0046E63C /* Emoticon */,
 				F704BCDF1FB302BE004E2A0F /* WBRefreshControl */,
@@ -458,6 +480,7 @@
 		F78899041F973A1C006CB400 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F714607A1FBEC9CA000BC2FA /* Date+Extensions.swift */,
 				F7001CBD1FAAFA48007B6FDE /* UIButton+Custom.h */,
 				F7001CBE1FAAFA49007B6FDE /* UIButton+Custom.m */,
 				F7001C971FA1AC45007B6FDE /* UIButton+CZAddition.h */,
@@ -604,6 +627,7 @@
 				F70250D21FB448CF008F795B /* WBComposeTypeView.xib in Resources */,
 				F79AA8E41FB9871D0046E63C /* CZEmoticonInputView.xib in Resources */,
 				F74C0ED11FBC1042003FF483 /* WBEmoticonInputView.xib in Resources */,
+				F71460761FBEB881000BC2FA /* status.sql in Resources */,
 				F704BCDE1FB1B032004E2A0F /* WBStatuRetweetedCell.xib in Resources */,
 				F74C0EC91FBAC370003FF483 /* WBComposeViewController.xib in Resources */,
 				F70250D61FB453CE008F795B /* WBComposeTypeBtn.xib in Resources */,
@@ -694,6 +718,7 @@
 				F78898D61F9733CB006CB400 /* WBMainViewController.swift in Sources */,
 				F7001C9A1FA1AC45007B6FDE /* UIColor+CZAddition.m in Sources */,
 				F793067E1F99868D007007C5 /* UIBarButtonItem+Extension.swift in Sources */,
+				F714607B1FBEC9CA000BC2FA /* Date+Extensions.swift in Sources */,
 				F7001CB01FA9CA43007B6FDE /* WBUserAccount.m in Sources */,
 				F70250D01FB44737008F795B /* WBComposeTypeView.swift in Sources */,
 				F704BCE11FB30315004E2A0F /* WBRefreshControl.swift in Sources */,
@@ -707,10 +732,12 @@
 				F7001CBB1FA9CF78007B6FDE /* NSString+CZBase64.m in Sources */,
 				F79306801F998DFF007007C5 /* UIScreen+Extension.swift in Sources */,
 				F704BCD71FB0555A004E2A0F /* UIImageView+WebImage.swift in Sources */,
+				F71460771FBEB881000BC2FA /* WBSQLiteManager.swift in Sources */,
 				F78899111F9745D6006CB400 /* WBComposeViewController.swift in Sources */,
 				F74C0ECC1FBAE363003FF483 /* WBComposeTextView.swift in Sources */,
 				F79AA8C01FB9390B0046E63C /* String+Extensions.swift in Sources */,
 				F71BFD431FAC1471003ACD40 /* WBNewFeature2.swift in Sources */,
+				F714607D1FBED9BE000BC2FA /* WBEmoticonTipView.swift in Sources */,
 				F7001CA51FA80EED007B6FDE /* WBCommon.swift in Sources */,
 				F79AA8DF1FB9871D0046E63C /* CZEmoticon.swift in Sources */,
 				F7001C9F1FA30800007B6FDE /* WBNetworkManager+Extension.swift in Sources */,
@@ -731,6 +758,7 @@
 				F7001C941FA1939D007B6FDE /* UILabel+CZAddition.m in Sources */,
 				F79AA8EC1FBA98340046E63C /* WBWebViewController.swift in Sources */,
 				F78898C41F973290006CB400 /* AppDelegate.swift in Sources */,
+				F71460791FBEB8ED000BC2FA /* WBStatusDAL.swift in Sources */,
 				F79AA8E11FB9871D0046E63C /* CZEmoticonPackage.swift in Sources */,
 				F79AA8E61FB9871D0046E63C /* CZEmoticonTipView.swift in Sources */,
 				F7001CBC1FA9CF78007B6FDE /* NSObject+CZRuntime.m in Sources */,

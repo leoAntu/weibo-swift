@@ -76,6 +76,7 @@ class WBStatuCell: UITableViewCell {
         resourceLab.text = model?.sourceStr
       
         //设置正文文本属性
+        contentLab.font = UIFont.systemFont(ofSize: 13)
         contentLab.attributedText = model?.statusAttrText
 
 // MARK: - 设置按钮标题
@@ -92,6 +93,7 @@ class WBStatuCell: UITableViewCell {
 
 // MARK: - 设置被转发微博信息
         if model?.isRetweeted ?? false {
+            retweetedLab?.font = UIFont.systemFont(ofSize: 13)
             retweetedLab?.attributedText = model?.retweetedAttrText
             pictureView.backgroundColor = jumpBtnAction.backgroundColor
         }
