@@ -30,7 +30,7 @@
 @property (nonatomic, strong) WBStatus *retweeted_status;
 
 //创建时间
-@property (nonatomic, copy) NSString * create_at;
+@property (nonatomic, copy) NSString * created_at;
 //微博来源
 @property (nonatomic, copy) NSString * source;
 

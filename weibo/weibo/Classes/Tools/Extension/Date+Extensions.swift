@@ -34,6 +34,7 @@ extension Date {
     /// - returns: 日期
     static func cz_sinaDate(string: String) -> Date? {
         
+    
         // 1. 设置日期格式
         dateFormatter.dateFormat = "EEE MMM dd HH:mm:ss zzz yyyy"
         

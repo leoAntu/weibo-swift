@@ -41,6 +41,9 @@ class WBStatusViewModel : CustomStringConvertible{
     var statusAttrText: NSAttributedString?
     //转发文字
     var retweetedAttrText: NSAttributedString?
+    
+    
+    var createdDate: Date?
 
     var isRetweeted:Bool? {
         return (status?.retweeted_ != nil) ? true : false
@@ -66,6 +69,8 @@ class WBStatusViewModel : CustomStringConvertible{
             vipIcon = nil
         }
         
+        //设置 创建时间
+        createdDate = Date.cz_sinaDate(string: status.created_at)
         //设置按钮标题
         // == 0 显示默认标题，超过10000，显示1万，小于10000,显示实际数值
         retweetedBtnTitle = countString(count: status.reposts_count, defaultStr: "转发")

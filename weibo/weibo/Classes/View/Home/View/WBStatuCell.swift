@@ -66,6 +66,8 @@ class WBStatuCell: UITableViewCell {
 
     func displayWithModel(model: WBStatusViewModel?) {
         
+        //设置日期时间
+        timeLab.text = model?.createdDate?.cz_dateDescription
         //会员图标
         memberIconView.image = model?.memberIcon
         vipIconView.image = model?.vipIcon

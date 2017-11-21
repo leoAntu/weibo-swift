@@ -24,9 +24,7 @@ class WBStatusListViewModel: NSObject {
         
         WBStatusDAL.loadStatus(since_id: Int64(since_id), max_id: Int64(max_id)) { (list, isSuccess) in
             
-//        }
-//        
-//        WBNetworkManager.shared.statusList(since_id: Int64(since_id), max_id: Int64(max_id)) { (list, isSuccess) in
+
             
             guard list != nil else {
                 completion(isSuccess)
